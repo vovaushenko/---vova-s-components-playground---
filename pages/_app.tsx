@@ -6,12 +6,13 @@ import '../design-foundation/index.css';
 import { useSystemDesign } from '../design-foundation/useSystemDesign';
 
 function MyApp({ Component, pageProps }: AppProps): unknown {
-  const { mainTheme } = useSystemDesign();
+  const { darkTheme } = useSystemDesign();
   return (
-    <ThemeProvider theme={mainTheme}>
+    <ThemeProvider theme={darkTheme}>
       <GlobalStyles />
       <Component {...pageProps} />
     </ThemeProvider>
   );
 }
+
 export default MyApp;

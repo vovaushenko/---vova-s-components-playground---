@@ -41,8 +41,42 @@
 
 export const colors = {
   primary: {
-    text: 'rgba(0, 0, 0, 1)',
-    background: '#f1f2f3',
+    text: 'rgba(255, 255, 255, 0.95)',
+    background: '#010606',
+    accent: '#2bff88',
+  },
+  gray: {
+    dark: 'rgba(48,49,51,.774)',
+    light: '#383838',
+    lightest: 'rgb(133, 133, 133)',
+  },
+  red: { danger: 'rgba(255,0,0,.562)', lightDanger: 'rgb(232, 53, 53)' },
+  blue: {
+    dark: 'rgb(3, 132, 192)',
+    light: '#4489aa',
+    lightest: '#4489aa',
+  },
+  modals: {
+    primaryBg: 'rgba(47, 70, 95, 0.6)',
+    primaryColor: 'rgba(0, 0, 0, 1)',
+  },
+  cards: {
+    mainBg: 'rgba(28, 33, 39, 0.8)',
+    primaryColor: 'rgba(0, 0, 0, 1)',
+  },
+
+  buttons: {
+    primaryBg: 'rgba(46,61,83,.692)',
+    primaryHover: 'rgba(46,61,83,.692)',
+    primaryColor: 'rgba(46,61,83,.692)',
+  },
+};
+
+export const darkColors = {
+  primary: {
+    text: 'rgba(255, 255, 255, 0.95)',
+    background: '#010606',
+    accent: '#2bff88',
   },
   gray: {
     dark: 'rgba(48,49,51,.774)',
