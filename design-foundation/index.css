@@ -1,0 +1,44 @@
+/**
+* Place to inject globally available classes and custom properties
+*/
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+input {
+  font-family: 'Lato', sans-serif;
+}
+
+::placeholder {
+  font-family: 'Lato', sans-serif;
+}
+
+button {
+  font-family: inherit;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  display: block;
+}

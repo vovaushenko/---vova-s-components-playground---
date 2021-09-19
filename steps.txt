@@ -1,0 +1,137 @@
+1) npx create-next-app
+
+2)create a tsconfig.json file with the following command: touch tsconfig.json
+
+3) Install some TypeScript dependencies: npm i --save-dev typescript @types/react @types/node
+
+//ES LINT
+1)npm i --save-dev eslint
+
+//STORYBOOK
+1)First, install Storybook packages:
+yarn add -D @storybook/react @babel/core babel-loader babel-preset-react-app @storybook/addon-controls @storybook/addon-essentials @storybook/addon-links
+
+2)Next, Babel packages:
+yarn add -D @babel/core @babel/preset-env @babel/preset-react @babel/preset-flow @babel/preset-typescript @babel/plugin-transform-runtime babel-jest babel-loader babel-plugin-transform-es2015-modules-commonjs @babel/plugin-transform-runtime
+
+3)Finally, we’ll setup our config for storybook and babel:
+
+main.js  This is the configuration for storybook. You can see we’re looking for stories inside a folder called stories and taking any file that has .stories.{mdx | js |jsx | ts | tsx} .
+
+// .storybook/main.js
+
+const path = require("path");
+const toPath = (_path) => path.join(process.cwd(), _path);
+
+module.exports = {
+  "stories": [
+    "../stories/**/*.stories.mdx",
+    "../stories/**/*.stories.@(js|jsx|ts|tsx)",
+    "../stories/**/*.stories.tsx"
+  ],
+  "addons": [
+    "@storybook/addon-links",
+    "@storybook/addon-essentials",
+    '@storybook/addon-controls'
+  ],
+}
+
+babel.config.json
+
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": "current"
+        }
+      }
+    ],
+    "@babel/preset-react",
+    "@babel/preset-flow",
+    "@babel/preset-typescript"
+  ],
+  "plugins": [
+    "@babel/plugin-transform-runtime",
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-transform-modules-commonjs",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-optional-chaining",
+    "@babel/plugin-proposal-nullish-coalescing-operator"
+  ],
+  "env": {
+    "development": {
+      "plugins": ["transform-es2015-modules-commonjs"]
+    },
+    "test": {
+      "plugins": [
+        "transform-es2015-modules-commonjs",
+        "@babel/plugin-proposal-class-properties"
+      ],
+      "presets": ["@babel/preset-react"]
+    }
+  }
+}
+
+
+
+JEST 
+
+1) Install Jest dependencies:
+npm i --save-dev jest babel-jest babel-core babel-preset-env babel-preset-react enzyme @wojtekmaj/enzyme-adapter-react-17 ts-jest @types/enzyme @types/jest
+
+2)Setup jest.config.js
+module.exports = {
+  collectCoverageFrom: [
+    '**/*.{ts,tsx}',
+    '!**/node_modules/**',
+    '!**/.storybook/**',
+    '!**/tests/**',
+    '!**/coverage/**',
+    '!jest.config.js',
+  ],
+  coverageThreshold: {
+    global: {
+      branches: 100,
+      functions: 100,
+      lines: 100,
+      statements: 100,
+    },
+  },
+  setupFiles: ['<rootDir>/enzyme.js'],
+  preset: 'ts-jest',
+  testPathIgnorePatterns: ['/.next/', '/node_modules/', '/lib/', '/tests/', '/coverage/', '/.storybook/'],
+  testRegex: '(/__test__/.*|\\.(test|spec))\\.(ts|tsx|js)$',
+  testURL: 'http://localhost',
+  testEnvironment: 'jsdom',
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'json'],
+  moduleNameMapper: {
+    '\\.(css|less)$': '<rootDir>/__mocks__/styleMock.js',
+    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+      '<rootDir>/__mocks__/fileMock.js',
+  },
+  transform: {
+    '.(ts|tsx)': 'babel-jest',
+  },
+  transformIgnorePatterns: ['<rootDir>/node_modules/'],
+};
+
+3)Add Jest scripts into your package.json :
+"scripts": {  
+  "test": "jest",  
+  "test:watch": "jest --watch",  
+  "test:coverage": "jest --coverage"
+},
+
+4)Create a new enzyme.js file in root with the following:
+const enzyme = require('enzyme');
+const Adapter = require('@wojtekmaj/enzyme-adapter-react-17');
+
+enzyme.configure({ adapter: new Adapter() });
+
+5)
+
+
+ESLINT PRETTIER
+https://paulintrognon.fr/blog/typescript-prettier-eslint-next-js
