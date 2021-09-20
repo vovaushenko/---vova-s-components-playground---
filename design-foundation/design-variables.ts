@@ -47,10 +47,14 @@ export const colors = {
     accentDark: '#01bf71',
   },
   green: { success: '#4BB543' },
+  yellow: { golden: '#ffc130', darkGolden: '#ffa500' },
   gray: {
     dark: 'rgba(48,49,51,.774)',
     light: '#383838',
     lightest: 'rgb(133, 133, 133)',
+    invisible: 'rgba(143, 143, 143, 0.1)',
+    bg: '#242424',
+    card: '#1b1b1b',
   },
   red: { danger: 'rgba(255,0,0,.562)', lightDanger: 'rgb(232, 53, 53)' },
   blue: {
@@ -82,10 +86,14 @@ export const darkColors = {
     accentDark: '#01bf71',
   },
   green: { success: '#4BB543' },
+  yellow: { golden: '#ffc130', darkGolden: '#ffa500' },
   gray: {
     dark: 'rgba(48,49,51,.774)',
     light: '#383838',
     lightest: 'rgb(133, 133, 133)',
+    invisible: 'rgba(143, 143, 143, 0.1)',
+    bg: '#242424',
+    card: '#1b1b1b',
   },
   red: { danger: 'rgba(255,0,0,.562)', lightDanger: 'rgb(232, 53, 53)' },
   blue: {
@@ -222,6 +230,7 @@ export type AppBorderRadiiType = typeof borderRadii;
 /* Box Shadows */
 export const boxShadows = {
   base: '0 1px 1px rgb(0 0 0 / 25%)',
+  buttonText: 'rgb(0 0 0 / 15%) 1px 1px 1px',
   window:
     '0 2.8px 2.2px rgba(0, 0, 0, 0.02),\n    0 6.7px 5.3px rgba(0, 0, 0, 0.028), 0 12.5px 10px rgba(0, 0, 0, 0.035),\n    0 22.3px 17.9px rgba(0, 0, 0, 0.042), 0 41.8px 33.4px rgba(0, 0, 0, 0.05),\n    0 100px 80px rgba(0, 0, 0, 0.07)',
 };
