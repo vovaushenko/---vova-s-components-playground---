@@ -44,7 +44,9 @@ export const colors = {
     text: 'rgba(255, 255, 255, 0.95)',
     background: '#010606',
     accent: '#2bff88',
+    accentDark: '#01bf71',
   },
+  green: { success: '#4BB543' },
   gray: {
     dark: 'rgba(48,49,51,.774)',
     light: '#383838',
@@ -77,7 +79,9 @@ export const darkColors = {
     text: 'rgba(255, 255, 255, 0.95)',
     background: '#010606',
     accent: '#2bff88',
+    accentDark: '#01bf71',
   },
+  green: { success: '#4BB543' },
   gray: {
     dark: 'rgba(48,49,51,.774)',
     light: '#383838',

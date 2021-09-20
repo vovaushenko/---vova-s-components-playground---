@@ -20,9 +20,24 @@ import {
  */
 
 export const useSystemDesign = (): {
-  mainTheme: DefaultTheme;
+  lightTheme: DefaultTheme;
+  darkTheme: DefaultTheme;
 } => {
-  const mainTheme: DefaultTheme = {
+  const lightTheme: DefaultTheme = {
+    theme: 'light',
+    colors: colors,
+    gradients: allGradients,
+    textFontSize: textFontSizes,
+    headingFontSize: headingFontSizes,
+    fontWeights: fontWeights,
+    media: responsiveBreakPoints,
+    spacing: spacing,
+    border: borderRadii,
+    boxShadows: boxShadows,
+    zIndex: zIndexes,
+  };
+  const darkTheme: DefaultTheme = {
+    theme: 'dark',
     colors: colors,
     gradients: allGradients,
     textFontSize: textFontSizes,
@@ -35,5 +50,5 @@ export const useSystemDesign = (): {
     zIndex: zIndexes,
   };
 
-  return { mainTheme };
+  return { lightTheme, darkTheme };
 };

@@ -14,6 +14,7 @@ import {
 
 declare module 'styled-components' {
   export interface DefaultTheme {
+    theme: 'dark' | 'light';
     colors: AppColorsType;
     spacing: AppSpacingType;
     textFontSize: AppTextFSType;

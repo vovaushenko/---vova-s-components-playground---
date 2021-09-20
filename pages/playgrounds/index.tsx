@@ -1,11 +1,11 @@
 import type { NextPage } from 'next';
 import React from 'react';
-import GridTextLayout from '../../components/Layout/GridTextLayout/GridTextLayout';
+import SlidingForm from '../../components/Forms/SlidingForm/SlidingForm';
 
 const Playgrounds: NextPage = () => {
   return (
     <div>
-      <GridTextLayout />
+      <SlidingForm />
     </div>
   );
 };
