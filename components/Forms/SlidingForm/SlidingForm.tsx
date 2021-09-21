@@ -4,6 +4,8 @@ import { Form, Formik } from 'formik';
 import * as yup from 'yup';
 import FormikInputField from '../Formik/FormikTextInput/FormikTextInput';
 import GenericButton from '../../Buttons/GenericButton/GenericButton';
+import SimpleCheckbox from '../Checkbox/SimpleCheckbox/SimpleCheckbox';
+import MaterialCheckbox from '../Checkbox/MaterialCheckbox/MaterialCheckbox';
 
 const validationSchema = yup.object({
   name: yup.string().required('Please introduce Yourself'),
@@ -34,6 +36,10 @@ const SlidingForm = (): JSX.Element => {
           <FormikInputField placeholder="message" name="message" type="text" />
 
           <GenericButton text={'shoot'} type={'submit'} />
+          <SimpleCheckbox variant={'fade'} height={24} />
+          <SimpleCheckbox variant={'simple'} height={44} />
+          <SimpleCheckbox variant={'animated'} height={44} />
+          <MaterialCheckbox height={25} />
         </Form>
       </Formik>
     </Styled.Container>

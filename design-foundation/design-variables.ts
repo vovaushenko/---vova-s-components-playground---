@@ -61,6 +61,7 @@ export const colors = {
     dark: 'rgb(3, 132, 192)',
     light: '#4489aa',
     lightest: '#4489aa',
+    neon: 'rgb(131, 238, 255)',
   },
   modals: {
     primaryBg: 'rgba(47, 70, 95, 0.6)',
@@ -100,6 +101,7 @@ export const darkColors = {
     dark: 'rgb(3, 132, 192)',
     light: '#4489aa',
     lightest: '#4489aa',
+    neon: 'rgb(131, 238, 255)',
   },
   modals: {
     primaryBg: 'rgba(47, 70, 95, 0.6)',

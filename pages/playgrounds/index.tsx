@@ -1,13 +1,13 @@
 import type { NextPage } from 'next';
 import React from 'react';
-import SlidingForm from '../../components/Forms/SlidingForm/SlidingForm';
+import Playgrounds from '../../sreens/Playgrounds/Playgrounds';
 
-const Playgrounds: NextPage = () => {
+const PlaygroundsScreen: NextPage = () => {
   return (
-    <div>
-      <SlidingForm />
-    </div>
+    <>
+      <Playgrounds />
+    </>
   );
 };
 
-export default Playgrounds;
+export default PlaygroundsScreen;
