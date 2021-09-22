@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { FiSun, FiVolume2 } from 'react-icons/fi';
+import SliderControl from '../../components/Forms/SliderControl/SliderControl';
 import * as Styled from './Playgrounds.styles';
-import 'react-calendar/dist/Calendar.css';
+import Sparkles from '../../components/UI/Sparkles/WithSparkles';
 
 /**
  *Renders playground screen where components will be tested
@@ -9,10 +11,19 @@ import 'react-calendar/dist/Calendar.css';
  *@returns {JSX.Element} - Rendered Playgrounds component
  */
 const Playgrounds = (): JSX.Element => {
-  const [value, onChange] = useState(new Date());
   return (
     <Styled.Container>
-      <div className="wrapper"></div>
+      <Sparkles color={'yellow'}>
+        <SliderControl
+          icon={<FiSun className="icon" />}
+          name="brightness-control"
+        />
+      </Sparkles>
+      <SliderControl
+        icon={<FiVolume2 className="icon" />}
+        name="brightness-control"
+      />
+      <SliderControl name="brightness-control" />
     </Styled.Container>
   );
 };
