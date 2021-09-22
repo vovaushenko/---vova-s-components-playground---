@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as Styled from './Playgrounds.styles';
-import SimpleSwitch from '../../components/Switches/SimpleSwitch/SimpleSwitch';
+import 'react-calendar/dist/Calendar.css';
 
 /**
  *Renders playground screen where components will be tested
@@ -9,9 +9,10 @@ import SimpleSwitch from '../../components/Switches/SimpleSwitch/SimpleSwitch';
  *@returns {JSX.Element} - Rendered Playgrounds component
  */
 const Playgrounds = (): JSX.Element => {
+  const [value, onChange] = useState(new Date());
   return (
     <Styled.Container>
-      <SimpleSwitch width={56} borderRadius={20} />
+      <div className="wrapper"></div>
     </Styled.Container>
   );
 };

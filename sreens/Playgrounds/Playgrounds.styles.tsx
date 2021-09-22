@@ -5,5 +5,9 @@ export const Container = styled.div`
   place-items: center;
   min-height: 100vh;
   min-width: 100vw;
-  background-color: ${({ theme }) => theme.colors.primary.background};
+  background-color: gray;
+
+  .wrapper {
+    max-width: 400px;
+  }
 `;
