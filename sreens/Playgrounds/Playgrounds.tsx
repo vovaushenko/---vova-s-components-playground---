@@ -1,8 +1,7 @@
 import React from 'react';
-import { FiSun, FiVolume2 } from 'react-icons/fi';
-import SliderControl from '../../components/Forms/SliderControl/SliderControl';
 import * as Styled from './Playgrounds.styles';
-import Sparkles from '../../components/UI/Sparkles/WithSparkles';
+import GenericButton from '../../components/Buttons/GenericButton/GenericButton';
+import WithSparkles from '../../components/UI/Sparkles/WithSparkles';
 
 /**
  *Renders playground screen where components will be tested
@@ -13,17 +12,9 @@ import Sparkles from '../../components/UI/Sparkles/WithSparkles';
 const Playgrounds = (): JSX.Element => {
   return (
     <Styled.Container>
-      <Sparkles color={'yellow'}>
-        <SliderControl
-          icon={<FiSun className="icon" />}
-          name="brightness-control"
-        />
-      </Sparkles>
-      <SliderControl
-        icon={<FiVolume2 className="icon" />}
-        name="brightness-control"
-      />
-      <SliderControl name="brightness-control" />
+      <WithSparkles color={'yellow'}>
+        <GenericButton>CLICK</GenericButton>
+      </WithSparkles>
     </Styled.Container>
   );
 };

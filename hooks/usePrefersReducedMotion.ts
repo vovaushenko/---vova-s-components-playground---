@@ -10,12 +10,17 @@ const getInitialState = () => {
   return isRenderingOnServer ? true : !window.matchMedia(QUERY).matches;
 };
 
-export function usePrefersReducedMotion() {
+/**
+ *Custom hook designed to detect whether user has prefer-reduced-motion flag
+ *@function usePrefersReducedMotion
+ *@returns {boolean} prefersReducedMotion - specifies whether user turned off animations preference on OS/browser level
+ */
+export function usePrefersReducedMotion(): boolean {
   const [prefersReducedMotion, setPrefersReducedMotion] =
     React.useState(getInitialState);
   React.useEffect(() => {
     const mediaQueryList = window.matchMedia(QUERY);
-    const listener = (event) => {
+    const listener = (event: MediaQueryListEvent) => {
       setPrefersReducedMotion(!event.matches);
     };
     mediaQueryList.addListener(listener);
