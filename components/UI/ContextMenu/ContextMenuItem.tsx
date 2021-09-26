@@ -62,7 +62,10 @@ const ContextMenuItem = ({
             rightOffset={containerWidth}
             distanceFromMainContainer={DISTANCE_FROM_MAIN_CONTAINER}
           >
-            <ContextMenu contextMenuItems={hoverMenuItems} />
+            <ContextMenu
+              contextMenuItems={hoverMenuItems}
+              locationCoordinates={{ x: 0, y: 0 }}
+            />
           </Styled.ContextMenuWrapper>
         )}
       </Styled.Container>

@@ -1,9 +1,16 @@
 import styled from 'styled-components';
+import { Props } from './ContextMenu';
 
-export const Container = styled.nav`
+type ContainerProps = Pick<Props, 'locationCoordinates'>;
+
+export const Container = styled.nav<ContainerProps>`
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+  position: absolute;
+
+  top: ${({ locationCoordinates }) => `${locationCoordinates.y}px`};
+  right: ${({ locationCoordinates }) => `${locationCoordinates.x}px`};
 
   border-radius: 4px;
   width: 200px;

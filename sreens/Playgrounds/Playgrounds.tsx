@@ -1,8 +1,10 @@
 import React, { useCallback, useState } from 'react';
-import * as Styled from './Playgrounds.styles';
 import GenericButton from '../../components/Buttons/GenericButton/GenericButton';
-import WithSparkles from '../../components/UI/Sparkles/WithSparkles';
 import ContextMenu from '../../components/UI/ContextMenu/ContextMenu';
+import WithSparkles from '../../components/UI/Sparkles/WithSparkles';
+import { useGetMouseCoordinates } from '../../hooks/useGetMouseCoordinates';
+import { debounce } from '../../utils/index';
+import * as Styled from './Playgrounds.styles';
 
 /**
  *Renders playground screen where components will be tested
@@ -15,13 +17,36 @@ const Playgrounds = (): JSX.Element => {
   const toggleContextMenu = useCallback(() => {
     setIsStateMenuOpen((prev) => !prev);
   }, []);
+
+  const [mouseX, setMouseX] = React.useState(0);
+
+  const handleRightMouseClick = (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    setIsStateMenuOpen(true);
+  };
+
+  const { x, y } = useGetMouseCoordinates();
+
+  const handleMouseMove = React.useCallback(
+    debounce((ev: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+      setMouseX(ev.clientX);
+    }, 250),
+    []
+  );
+
   return (
-    <Styled.Container>
+    <Styled.Container
+      onContextMenu={handleRightMouseClick}
+      onMouseMove={handleMouseMove}
+    >
       <WithSparkles color={'yellow'}>
         <GenericButton onClick={toggleContextMenu}>CLICK</GenericButton>
       </WithSparkles>
       {isStateMenuOpen && (
         <ContextMenu
+          locationCoordinates={{ x, y }}
           contextMenuItems={[
             { id: 1, text: 'View', action: null, withUnderline: true },
             {
@@ -31,7 +56,15 @@ const Playgrounds = (): JSX.Element => {
               withUnderline: true,
               hoverMenuItems: [
                 { id: 1, text: 'View', action: null },
-                { id: 2, text: 'View', action: null },
+                {
+                  id: 2,
+                  text: 'View',
+                  action: null,
+                  hoverMenuItems: [
+                    { id: 1, text: 'View', action: null },
+                    { id: 2, text: 'View', action: null },
+                  ],
+                },
                 {
                   id: 3,
                   text: 'View',
@@ -94,6 +127,9 @@ const Playgrounds = (): JSX.Element => {
           ]}
         />
       )}
+
+      <pre>{`X${x} Y${y}`}</pre>
+      <pre>{`X${mouseX}`}</pre>
     </Styled.Container>
   );
 };

@@ -1,4 +1,5 @@
-export { random };
+/* eslint-disable prefer-spread */
+export { random, debounce, range };
 /**
  *Returns random number in specified range
  *@function random
@@ -18,7 +19,7 @@ const random = (min: number, max: number): number =>
  *@returns {Array<number>} random number in range
  */
 
-export const range = (start: number, end: number, step = 1): number[] => {
+const range = (start: number, end: number, step = 1): number[] => {
   const output = [];
   if (typeof end === 'undefined') {
     end = start;
@@ -28,4 +29,23 @@ export const range = (start: number, end: number, step = 1): number[] => {
     output.push(i);
   }
   return output;
+};
+
+/**
+ *Classic JS Debounce utility function
+ *@function debounce
+ *@param {function} callback - callback offunction to be debounced
+ *@param {number} delay - debounce delay in milliseconds
+ *@returns {function} debounced function
+ */
+const debounce = (callback: unknown, delay: number): (() => unknown) => {
+  let timeoutID: null | number = null;
+
+  return (...args) => {
+    if (timeoutID) window.clearTimeout(timeoutID);
+
+    timeoutID = window.setTimeout(() => {
+      if (typeof callback === 'function') callback.apply(null, args);
+    }, delay);
+  };
 };

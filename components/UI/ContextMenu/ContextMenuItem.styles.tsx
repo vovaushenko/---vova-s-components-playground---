@@ -43,5 +43,5 @@ export const ContextMenuWrapper = styled.div<Props>`
   visibility: ${({ isContextMenuShown }) =>
     isContextMenuShown ? 'visible' : 'hidden'};
 
-  transition: visibility 0.2s ease;
+  transition: visibility 0.3s ease;
 `;

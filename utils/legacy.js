@@ -1,6 +1,16 @@
 // TODO: Modernize
 /* eslint-disable */
 
+export const debounce = (callback, wait) => {
+  let timeoutId = null;
+  return (...args) => {
+    window.clearTimeout(timeoutId);
+    timeoutId = window.setTimeout(() => {
+      callback.apply(null, args);
+    }, wait);
+  };
+};
+
 export const range = (start, end, step = 1) => {
   let output = [];
   if (typeof end === 'undefined') {
@@ -34,16 +44,6 @@ export const clamp = (val, min = 0, max = 1) =>
 
 export const roundTo = (number, places = 0) =>
   Math.round(number * 10 ** places) / 10 ** places;
-
-export const debounce =
-  (callback, wait, timeoutId = null) =>
-  (...args) => {
-    window.clearTimeout(timeoutId);
-
-    timeoutId = setTimeout(() => {
-      callback.apply(null, args);
-    }, wait);
-  };
 
 export const throttle = (func, limit) => {
   let lastFunc;

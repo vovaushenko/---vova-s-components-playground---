@@ -2,8 +2,9 @@ import React from 'react';
 import * as Styled from './ContextMenu.styles';
 import ContextMenuItem, { IContextMenuItem } from './ContextMenuItem';
 
-interface Props {
+export interface Props {
   contextMenuItems: IContextMenuItem[];
+  locationCoordinates: { x: number; y: number };
 }
 
 /**
@@ -11,9 +12,13 @@ interface Props {
  *@param {number} prop -
  *@returns {JSX.Element} - Rendered CardContent component
  */
-const ContextMenu = ({ contextMenuItems }: Props): JSX.Element => {
+const ContextMenu = ({
+  contextMenuItems,
+  locationCoordinates,
+}: Props): JSX.Element => {
+  console.log(locationCoordinates);
   return (
-    <Styled.Container>
+    <Styled.Container locationCoordinates={locationCoordinates}>
       {contextMenuItems.map((item) => (
         <ContextMenuItem
           key={item.id}
