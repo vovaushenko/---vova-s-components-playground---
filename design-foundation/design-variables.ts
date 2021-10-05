@@ -230,12 +230,37 @@ export const borderRadii = { base: '4px' };
 export type AppBorderRadiiType = typeof borderRadii;
 
 /* Box Shadows */
+
+const ELEVATIONS: { small: string; medium: string; large: string } = {
+  small: `
+    0.5px 1px 1px rgba(var(--shadow-color) / 0.7)
+  `,
+  medium: `
+    1px 2px 2px rgba(var(--shadow-color) / 0.333),
+    2px 4px 4px rgba(var(--shadow-color) / 0.333),
+    3px 6px 6px rgba(var(--shadow-color) / 0.333)
+  `,
+  large: `
+    1px 2px 2px rgba(var(--shadow-color) / 0.2),
+    2px 4px 4px rgba(var(--shadow-color) / 0.2),
+    4px 8px 8px rgba(var(--shadow-color) / 0.2),
+    8px 16px 16px rgba(var(--shadow-color) / 0.2),
+    16px 32px 32px rgba(var(--shadow-color) / 0.2)
+  `,
+};
+
 export const boxShadows = {
   base: '0 1px 1px rgb(0 0 0 / 25%)',
   buttonText: 'rgb(0 0 0 / 15%) 1px 1px 1px',
 
   window:
     '0 2.8px 2.2px rgba(0, 0, 0, 0.02),\n    0 6.7px 5.3px rgba(0, 0, 0, 0.028), 0 12.5px 10px rgba(0, 0, 0, 0.035),\n    0 22.3px 17.9px rgba(0, 0, 0, 0.042), 0 41.8px 33.4px rgba(0, 0, 0, 0.05),\n    0 100px 80px rgba(0, 0, 0, 0.07)',
+
+  byElevation: {
+    small: ELEVATIONS.small,
+    medium: ELEVATIONS.medium,
+    large: ELEVATIONS.large,
+  },
 };
 export type AppBoxShadowsType = typeof boxShadows;
 /* Z-indexes */

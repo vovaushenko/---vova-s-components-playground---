@@ -11,12 +11,14 @@ const NextImage: React.FunctionComponent<Props> = ({
   return (
     <>
       {variant === 'full-viewport-bg' && (
-        <Image
-          src="/assets/toronto.jpg"
-          layout="fill"
-          objectFit="cover"
-          alt="Mesmerizing Toronto"
-        />
+        <FullViewportWrapper>
+          <Image
+            src="/assets/toronto.jpg"
+            layout="fill"
+            objectFit="cover"
+            alt="Mesmerizing Toronto"
+          />
+        </FullViewportWrapper>
       )}
 
       {variant === 'card-image' && (
@@ -45,10 +47,20 @@ const NextImage: React.FunctionComponent<Props> = ({
   );
 };
 
+const FullViewportWrapper = styled.section`
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+`;
+
 const Card = styled.article`
   width: 20rem;
   padding: ${({ theme }) => theme.spacing.sm};
   background: ${({ theme }) => theme.colors.gray.card};
+
   .card-body {
     margin-top: ${({ theme }) => theme.spacing.sm};
   }
