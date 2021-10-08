@@ -12,6 +12,8 @@ const defaultButton = css`
  */
 const hoveredButton = css`
   opacity: 0.95;
+  transform: translateY(-2px);
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
 `;
 /***
  * FOCUSED BUTTON STATE
@@ -32,7 +34,7 @@ const disabledButton = css`
  * ACTIVE BUTTON STATE
  */
 const activeButton = css`
-  transform: scale(0.95);
+  transform: scale(0.97);
 
   :before {
     display: none;
@@ -111,8 +113,7 @@ export const StyledButton = styled.button<Props>`
   align-items: center;
   justify-content: center;
 
-  height: 3rem;
-  padding: ${({ theme }) => `0 ${theme.spacing.lg}`};
+  padding: ${({ theme }) => `${theme.spacing.md} ${theme.spacing.xl}`};
 
   font-family: inherit;
   font-size: ${({ theme }) => theme.textFontSize.sm};
@@ -150,15 +151,14 @@ export const StyledButton = styled.button<Props>`
     ${(p) => !p.disabled && !p.isLoading && !p.isCompleted && focusedButton};
   }
 
-  &:disabled {
-    ${disabledButton};
-  }
-
   &:active {
     ${(p) => !p.disabled && !p.isLoading && !p.isCompleted && activeButton};
   }
 
   ${(p) => p.isLoading && loadingButton};
+  &:disabled {
+    ${disabledButton};
+  }
   ${(p) => p.isCompleted && completedButton};
 
   @media ${({ theme }) => theme.media.phone} {

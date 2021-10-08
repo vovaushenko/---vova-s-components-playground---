@@ -14,4 +14,14 @@ export const Container = styled.div`
   .wrapper {
     max-width: 400px;
   }
+
+  ul {
+    list-style: square;
+
+    li {
+      ::marker {
+        color: red;
+      }
+    }
+  }
 `;

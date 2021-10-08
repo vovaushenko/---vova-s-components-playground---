@@ -1,11 +1,11 @@
 import type { NextPage } from 'next';
 import React from 'react';
-import DummyComponent from '../components/DummyComponent/DummyComponent';
+import Playgrounds from '../sreens/Playgrounds/Playgrounds';
 
 const Home: NextPage = () => {
   return (
     <div>
-      <DummyComponent dummyText="Hello" />
+      <Playgrounds />
     </div>
   );
 };
