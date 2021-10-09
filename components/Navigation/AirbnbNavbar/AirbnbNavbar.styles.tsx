@@ -70,12 +70,12 @@ export const A = styled.a`
 
   & .nav__icon {
     color: ${({ theme }) => theme.colors.primary.accent};
-    margin-right: ${({ theme }) => theme.spacing.xxxs};
+    margin-right: ${({ theme }) => theme.spacing.xxs};
   }
 
   & .social__icon {
     color: ${({ theme }) => theme.colors.primary.accent};
-    font-size: ${({ theme }) => theme.textFontSize.lg};
+    font-size: ${({ theme }) => theme.textFontSize.xl};
   }
 `;
 

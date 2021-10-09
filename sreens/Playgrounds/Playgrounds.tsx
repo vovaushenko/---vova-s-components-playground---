@@ -1,7 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import * as Styled from './Playgrounds.styles';
 import styled from 'styled-components';
 import AirbnbNavbar from '../../components/Navigation/AirbnbNavbar/AirbnbNavbar';
+import BottomNavigation from '../../components/Navigation/BottomNavigation/BottomNavigation';
+import SettingsControl from '../../components/UI/SettingsControl/SettingsControl';
+import SettingsWidget from '../../components/Widgets/SettingsWidget/SettingsWidget';
 
 /**
  *Renders playground screen where components will be tested
@@ -11,18 +14,11 @@ import AirbnbNavbar from '../../components/Navigation/AirbnbNavbar/AirbnbNavbar'
  */
 
 const Playgrounds = (): JSX.Element => {
-  const trackScroll = () => console.log(window.scrollX);
-
-  useEffect(() => {
-    window.addEventListener('click', trackScroll);
-    return () => {
-      window.removeEventListener('click', trackScroll);
-    };
-  }, []);
-
   return (
     <Styled.Container>
       <AirbnbNavbar />
+      <SettingsControl />
+      <SettingsWidget />
       <Hero bgWallpaper={'/bg.jpg'}></Hero>
       <Screen>
         <h1>hello</h1>
@@ -50,15 +46,7 @@ const Playgrounds = (): JSX.Element => {
       </Screen>
       <Screen>
         <h1>hello</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim et
-          expedita in iure, laborum natus quaerat repellendus voluptatem.
-          Eligendi excepturi quas ratione vero voluptatibus. Accusantium magni
-          numquam velit. Dolore facere fugiat modi molestias nesciunt pariatur
-          quod reiciendis reprehenderit vero, voluptates. Ab animi asperiores
-          deserunt ea, excepturi expedita, placeat porro possimus quasi quisquam
-          saepe tenetur vitae.
-        </p>
+        <BottomNavigation buttonActiveColor={'red'} buttonTextColor={'white'} />
       </Screen>
     </Styled.Container>
   );

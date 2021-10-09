@@ -6,7 +6,7 @@ import {
 
 const initialUIstate: UIstate = {
   theme: 'dark',
-  areSettingsOpen: false,
+  isSettingsWidgetOpen: false,
 };
 /**
  *@function uiReducer
@@ -24,14 +24,14 @@ export const uiReducer = (
       const newTheme = state.theme === 'dark' ? 'light' : 'dark';
       return { ...state, theme: newTheme };
 
-    case UIactionTypes.OPEN_SETTINGS_MODAL:
+    case UIactionTypes.OPEN_SETTINGS_WIDGET:
       return {
         ...state,
-        areSettingsOpen: true,
+        isSettingsWidgetOpen: true,
       };
 
-    case UIactionTypes.CLOSE_SETTINGS_MODAL:
-      return { ...state, areSettingsOpen: false };
+    case UIactionTypes.CLOSE_SETTINGS_WIDGET:
+      return { ...state, isSettingsWidgetOpen: false };
 
     default:
       return state;
