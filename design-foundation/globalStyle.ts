@@ -10,19 +10,10 @@ export const GlobalStyles = createGlobalStyle`
     background: ${({ theme }) => theme.colors.primary.background};
   }
 
-  html,
-  body {
-    height: 100%;
-    overflow: auto;
-  }
-
+ 
   .icon {
     color: ${({ theme }) => theme.colors.primary.text};
     font-size: ${({ theme }) => theme.textFontSize.sm};
   }
 
-  /* hide scrollbar */
-  ::-webkit-scrollbar {
-    display: none;
-  }
 `;

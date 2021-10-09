@@ -45,10 +45,13 @@ export const colors = {
     background: '#010606',
     accent: '#2bff88',
     accentDark: '#01bf71',
+    purple: '#4831d4',
   },
   green: { success: '#4BB543' },
   yellow: { golden: '#ffc130', darkGolden: '#ffa500' },
+  white: { standard: 'rgba(255, 255, 255, 1)' },
   gray: {
+    text: 'rgb(34, 34, 34)',
     dark: 'rgba(48,49,51,.774)',
     light: '#383838',
     lightest: 'rgb(133, 133, 133)',
@@ -82,13 +85,16 @@ export const colors = {
 export const darkColors = {
   primary: {
     text: 'rgba(255, 255, 255, 0.95)',
+    white: { standard: 'rgba(255, 255, 255, 1)' },
     background: '#010606',
     accent: '#2bff88',
     accentDark: '#01bf71',
+    purple: '#4831d4',
   },
   green: { success: '#4BB543' },
   yellow: { golden: '#ffc130', darkGolden: '#ffa500' },
   gray: {
+    text: 'rgb(34, 34, 34)',
     dark: 'rgba(48,49,51,.774)',
     light: '#383838',
     lightest: 'rgb(133, 133, 133)',
@@ -251,6 +257,11 @@ const ELEVATIONS: { small: string; medium: string; large: string } = {
 
 export const boxShadows = {
   base: '0 1px 1px rgb(0 0 0 / 25%)',
+  medium: `
+    0 1px 1px rgb(0 0 0 / 0.155),
+    0 2px 2px rgb(0 0 0 / 0.155),
+    0 3px 3px rgb(0 0 0 / 0.155)
+  `,
   buttonText: 'rgb(0 0 0 / 15%) 1px 1px 1px',
 
   window:

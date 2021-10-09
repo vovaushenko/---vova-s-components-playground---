@@ -4,9 +4,9 @@ import Playgrounds from '../sreens/Playgrounds/Playgrounds';
 
 const Home: NextPage = () => {
   return (
-    <div>
+    <>
       <Playgrounds />
-    </div>
+    </>
   );
 };
 

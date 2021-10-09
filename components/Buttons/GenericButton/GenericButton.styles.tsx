@@ -95,7 +95,7 @@ const loadingButton = css`
   cursor: wait;
 `;
 /***
- * COMPLETED BUTTON STATE
+ * COMPLETED BUTTON STATEAir
  */
 const completedButton = css`
   background: ${({ theme }) => theme.colors.green.success};
@@ -156,9 +156,11 @@ export const StyledButton = styled.button<Props>`
   }
 
   ${(p) => p.isLoading && loadingButton};
+
   &:disabled {
     ${disabledButton};
   }
+
   ${(p) => p.isCompleted && completedButton};
 
   @media ${({ theme }) => theme.media.phone} {
