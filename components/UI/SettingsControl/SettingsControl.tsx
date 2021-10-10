@@ -2,6 +2,7 @@ import React from 'react';
 import * as Styled from './SettingsControl.styles';
 import { useSettingsControlConfig } from './SettingsControl.config';
 import Boop from '../../Animations/Boop/Boop';
+import IconButton from '../../Buttons/IconButton/IconButton';
 
 /**
  *@function SettingsControl
@@ -16,11 +17,11 @@ const SettingsControl = (): JSX.Element => {
       <Styled.UL>
         {settingButtons.map((btn) => (
           <Styled.LI key={btn.id}>
-            <Styled.SettingsButton onClick={btn.action}>
-              <Boop boopConfig={{ rotation: 13, y: -1, scale: 1.3 }}>
+            <IconButton onClick={btn.action} renderAs={'button'}>
+              <Boop boopConfig={{ rotation: 25, scale: 1.1, timing: 200 }}>
                 {btn.icon}
               </Boop>
-            </Styled.SettingsButton>
+            </IconButton>
           </Styled.LI>
         ))}
       </Styled.UL>

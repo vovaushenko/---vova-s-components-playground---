@@ -50,17 +50,6 @@ export const Right = styled.div`
   gap: ${({ theme }) => theme.spacing.md};
 `;
 
-export const Logo = styled.figure`
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-`;
-export const Figcaption = styled.figcaption`
-  font-size: ${({ theme }) => theme.textFontSize.xl};
-  font-weight: ${({ theme }) => theme.fontWeights.semibold};
-  margin-left: ${({ theme }) => theme.spacing.sm};
-`;
-
 export const A = styled.a`
   display: flex;
   align-items: center;

@@ -6,6 +6,8 @@ import NavbarSearch from './NavbarSearch';
 import { FiSearch } from 'react-icons/fi';
 import { useNavbarConfig } from './AirbnbNavbar.config';
 import Logo from './Logo/Logo';
+import IconButton from '../../Buttons/IconButton/IconButton';
+import Boop from '../../Animations/Boop/Boop';
 
 /**
  *@function AirbnbNavbar
@@ -97,9 +99,11 @@ const AirbnbNavbar = (): JSX.Element => {
         {/*RIGHT*/}
         <S.Right>
           {socialLinks.map((link) => (
-            <Link href={link.href} key={link.id}>
-              <S.A>{link.icon}</S.A>
-            </Link>
+            <IconButton key={link.id} renderAs={'link'} href={link.href}>
+              <Boop boopConfig={{ rotation: 25, scale: 1.1, timing: 200 }}>
+                {link.icon}
+              </Boop>
+            </IconButton>
           ))}
         </S.Right>
         {/*////END OF RIGHT////*/}

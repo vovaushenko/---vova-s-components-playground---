@@ -26,19 +26,19 @@ export const useSettingsControlConfig = (): HookReturn => {
     {
       id: 1,
       action: () => toggleSettingsWidget(),
-      icon: <FiSettings className={'settings__icon'} />,
+      icon: <FiSettings className={'button__icon'} />,
       text: 'Settings',
     },
     {
       id: 2,
       action: () => changeTheme(),
-      icon: <FiSun className={'settings__icon'} />,
+      icon: <FiSun className={'button__icon'} />,
       text: 'Settings',
     },
     {
       id: 3,
       action: () => console.log('click'),
-      icon: <FiSave className={'settings__icon'} />,
+      icon: <FiSave className={'button__icon'} />,
       text: 'Settings',
     },
   ];

@@ -34,20 +34,20 @@ export const useNavbarConfig = (): HookReturnType => {
     {
       id: 1,
       text: 'Dev.to',
-      icon: <FaDev className={'social__icon'} />,
-      href: 'playgrounds',
+      icon: <FaDev className={'button__icon'} />,
+      href: 'https://dev.to/vovacodesca',
     },
     {
       id: 2,
       text: 'Linkedin',
-      icon: <FiLinkedin className={'social__icon'} />,
-      href: 'playgrounds',
+      icon: <FiLinkedin className={'button__icon'} />,
+      href: 'https://www.linkedin.com/in/vovau/',
     },
     {
       id: 2,
       text: 'FiInstagram',
-      icon: <FiInstagram className={'social__icon'} />,
-      href: 'playgrounds',
+      icon: <FiInstagram className={'button__icon'} />,
+      href: 'https://www.instagram.com/vovacodes/',
     },
   ];
 
