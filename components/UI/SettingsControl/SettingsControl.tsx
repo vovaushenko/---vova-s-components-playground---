@@ -1,6 +1,7 @@
 import React from 'react';
 import * as Styled from './SettingsControl.styles';
 import { useSettingsControlConfig } from './SettingsControl.config';
+import Boop from '../../Animations/Boop/Boop';
 
 /**
  *@function SettingsControl
@@ -16,7 +17,9 @@ const SettingsControl = (): JSX.Element => {
         {settingButtons.map((btn) => (
           <Styled.LI key={btn.id}>
             <Styled.SettingsButton onClick={btn.action}>
-              {btn.icon}
+              <Boop boopConfig={{ rotation: 13, y: -1, scale: 1.3 }}>
+                {btn.icon}
+              </Boop>
             </Styled.SettingsButton>
           </Styled.LI>
         ))}
