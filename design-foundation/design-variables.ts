@@ -41,9 +41,9 @@
 
 export const colors = {
   primary: {
-    text: 'rgba(255, 255, 255, 0.95)',
-    background: '#010606',
-    accent: '#2bff88',
+    text: 'rgb(34, 34, 34)',
+    background: '#f7f7f7',
+    accent: 'rgb(93, 63, 211)',
     accentDark: '#01bf71',
     purple: '#4831d4',
   },
@@ -85,7 +85,6 @@ export const colors = {
 export const darkColors = {
   primary: {
     text: 'rgba(255, 255, 255, 0.95)',
-    white: { standard: 'rgba(255, 255, 255, 1)' },
     background: '#010606',
     accent: '#2bff88',
     accentDark: '#01bf71',
@@ -93,6 +92,7 @@ export const darkColors = {
   },
   green: { success: '#4BB543' },
   yellow: { golden: '#ffc130', darkGolden: '#ffa500' },
+  white: { standard: 'rgba(255, 255, 255, 1)' },
   gray: {
     text: 'rgb(34, 34, 34)',
     dark: 'rgba(48,49,51,.774)',

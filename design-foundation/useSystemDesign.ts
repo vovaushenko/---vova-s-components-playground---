@@ -4,6 +4,7 @@ import {
   borderRadii,
   boxShadows,
   colors,
+  darkColors,
   fontWeights,
   headingFontSizes,
   responsiveBreakPoints,
@@ -38,7 +39,7 @@ export const useSystemDesign = (): {
   };
   const darkTheme: DefaultTheme = {
     theme: 'dark',
-    colors: colors,
+    colors: darkColors,
     gradients: allGradients,
     textFontSize: textFontSizes,
     headingFontSize: headingFontSizes,

@@ -52,11 +52,7 @@ interface Props {
 
 const Hero = styled.div<Props>`
   height: 100vh;
-  background: ${({
-    bgWallpaper,
-  }) => `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-    url(${bgWallpaper}) center/cover no-repeat
-      fixed`};
+  background-color: ${({ theme }) => theme.colors.primary.background};
 `;
 
 const Screen = styled.div`

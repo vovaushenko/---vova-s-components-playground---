@@ -69,7 +69,7 @@ export const Container = styled.div<Props>`
   alignself: center;
   justify-content: center;
   border-radius: 2rem;
-  color: ${({ theme }) => theme.colors.white.standard};
+  color: ${({ theme }) => theme.colors.primary.text};
   background-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
 

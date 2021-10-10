@@ -2,12 +2,12 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import * as S from './AirbnbNavbar.styles';
 import Link from 'next/link';
 import { Maybe } from '../../../types/utility-types';
-import NavbarSearch from './NavbarSearch';
-import { FiSearch } from 'react-icons/fi';
+import NavbarSearch from './NavbarSearch/NavbarSearch';
 import { useNavbarConfig } from './AirbnbNavbar.config';
 import Logo from './Logo/Logo';
 import IconButton from '../../Buttons/IconButton/IconButton';
 import Boop from '../../Animations/Boop/Boop';
+import ExpandButton from './ExpandButton/ExpandButton';
 
 /**
  *@function AirbnbNavbar
@@ -76,22 +76,24 @@ const AirbnbNavbar = (): JSX.Element => {
           {areLinksExpanded ? (
             <>
               {centralLinks.map((link) => (
-                <Link href={link.href} key={link.id}>
-                  <S.A>
-                    {link.icon} {link.text}
-                  </S.A>
-                </Link>
+                <S.ListItem key={link.id}>
+                  <Link href={link.href}>
+                    <S.A>
+                      {link.icon}
+
+                      {link.text}
+                    </S.A>
+                  </Link>
+                </S.ListItem>
               ))}
             </>
           ) : (
-            <>
-              <S.SearchButton onClick={toggleLinksExpanded}>
-                <p className={'btn__text'}>Search More</p>
-                <S.SearchIcon>
-                  <FiSearch className="search__icon" />
-                </S.SearchIcon>
-              </S.SearchButton>
-            </>
+            <Boop boopConfig={{ y: 5, scale: 1.05, timing: 200 }}>
+              <ExpandButton
+                onClick={toggleLinksExpanded}
+                text={'Expand Options'}
+              />
+            </Boop>
           )}
         </S.Center>
         {/*////END OF CENTER////*/}
@@ -99,15 +101,18 @@ const AirbnbNavbar = (): JSX.Element => {
         {/*RIGHT*/}
         <S.Right>
           {socialLinks.map((link) => (
-            <IconButton key={link.id} renderAs={'link'} href={link.href}>
-              <Boop boopConfig={{ rotation: 25, scale: 1.1, timing: 200 }}>
-                {link.icon}
-              </Boop>
-            </IconButton>
+            <S.ListItem key={link.id}>
+              <IconButton renderAs={'link'} href={link.href}>
+                <Boop boopConfig={{ rotation: 25, scale: 1.1, timing: 200 }}>
+                  {link.icon}
+                </Boop>
+              </IconButton>
+            </S.ListItem>
           ))}
         </S.Right>
         {/*////END OF RIGHT////*/}
       </S.Navigation>
+      {/*////NAVBAR BOTTOM SEARCH ////*/}
       <NavbarSearch isExpanded={areLinksExpanded} />
     </S.Container>
   );
