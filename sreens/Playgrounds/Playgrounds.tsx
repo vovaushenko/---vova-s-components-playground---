@@ -1,10 +1,7 @@
 import React from 'react';
 import * as Styled from './Playgrounds.styles';
 import styled from 'styled-components';
-import AirbnbNavbar from '../../components/Navigation/AirbnbNavbar/AirbnbNavbar';
 import BottomNavigation from '../../components/Navigation/BottomNavigation/BottomNavigation';
-import SettingsControl from '../../components/UI/SettingsControl/SettingsControl';
-import SettingsWidget from '../../components/Widgets/SettingsWidget/SettingsWidget';
 
 /**
  *Renders playground screen where components will be tested
@@ -16,9 +13,6 @@ import SettingsWidget from '../../components/Widgets/SettingsWidget/SettingsWidg
 const Playgrounds = (): JSX.Element => {
   return (
     <Styled.Container>
-      <AirbnbNavbar />
-      <SettingsControl />
-      <SettingsWidget />
       <Hero bgWallpaper={'/bg.jpg'}></Hero>
       <Screen>
         <h1>hello</h1>

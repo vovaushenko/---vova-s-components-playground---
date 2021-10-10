@@ -8,8 +8,8 @@ interface Props {
 export const Container = styled.aside<Props>`
   z-index: ${({ theme }) => theme.zIndex.modal};
 
-  position: absolute;
-  top: 9%;
+  position: fixed;
+  top: 35%;
 
   display: flex;
   flex-direction: column;
