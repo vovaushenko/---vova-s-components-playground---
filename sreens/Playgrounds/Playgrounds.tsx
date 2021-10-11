@@ -2,7 +2,11 @@ import React from 'react';
 import * as Styled from './Playgrounds.styles';
 import styled from 'styled-components';
 import BottomNavigation from '../../components/Navigation/BottomNavigation/BottomNavigation';
-import Button from '../../components/Buttons/GenericButton/GenericButton';
+import SplitButton, {
+  SplitButtonOption,
+} from '../../components/Buttons/SplitButton/SplitButton';
+
+import { FiPrinter, FiSave, FiSettings } from 'react-icons/fi';
 
 /**
  *Renders playground screen where components will be tested
@@ -12,13 +16,31 @@ import Button from '../../components/Buttons/GenericButton/GenericButton';
  */
 
 const Playgrounds = (): JSX.Element => {
+  const options: SplitButtonOption[] = [
+    {
+      id: 1,
+      text: 'Save draft',
+      icon: <FiSave className={'option__icon'} />,
+      action: () => alert('Save draft'),
+    },
+    {
+      id: 2,
+      text: 'Configure draft',
+      icon: <FiSettings className={'option__icon'} />,
+      action: () => alert('Configure draft'),
+    },
+    {
+      id: 3,
+      text: 'Print draft',
+      icon: <FiPrinter className={'option__icon'} />,
+      action: () => alert('Print draft'),
+    },
+  ];
+
   return (
     <Styled.Container>
       <Hero bgWallpaper={'/bg.jpg'}>
-        <Button>TEST</Button>
-        <Button isLoading>TEST</Button>
-        <Button disabled>TEST</Button>
-        <Button isCompleted>TEST</Button>
+        <SplitButton text={'Send'} options={options} />
       </Hero>
       <Screen>
         <h1>hello</h1>
