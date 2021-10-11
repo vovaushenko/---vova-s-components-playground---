@@ -17,6 +17,7 @@ const nonTransparentStyles = css`
 `;
 
 export const Container = styled.header<ContainerProps>`
+  z-index: ${({ theme }) => theme.zIndex.navigation};
   position: fixed;
   width: 100%;
   padding: ${({ theme }) => theme.spacing.sm};

@@ -88,7 +88,7 @@ const AirbnbNavbar = (): JSX.Element => {
               ))}
             </>
           ) : (
-            <Boop boopConfig={{ y: 5, scale: 1.05, timing: 200 }}>
+            <Boop boopConfig={{ y: 2, scale: 1.03, timing: 200 }}>
               <ExpandButton
                 onClick={toggleLinksExpanded}
                 text={'Expand Options'}

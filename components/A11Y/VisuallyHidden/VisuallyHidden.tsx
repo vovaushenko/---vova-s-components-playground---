@@ -5,7 +5,7 @@ import React from 'react';
  *@IMPORTANT by pressing ALT the typically-hidden will be displayed, letting you verify that you haven't missed anything. In production this will be stripped away
  *Renders visually hidden component that allows place text inside components for users with screen readers
  *@function VisuallyHidden
- *@param {chilren} ReactNode - wrapped children which will recieve screen reader support
+ *@param {chilren} ReactNode - wrapped children which will receive screen reader support
  *@param {rest} rest - other params to be added
  *@returns {JSX.Element} - Rendered VisuallyHidden component
  */

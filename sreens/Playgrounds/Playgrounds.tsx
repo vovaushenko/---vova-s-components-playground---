@@ -2,6 +2,7 @@ import React from 'react';
 import * as Styled from './Playgrounds.styles';
 import styled from 'styled-components';
 import BottomNavigation from '../../components/Navigation/BottomNavigation/BottomNavigation';
+import Button from '../../components/Buttons/GenericButton/GenericButton';
 
 /**
  *Renders playground screen where components will be tested
@@ -13,7 +14,12 @@ import BottomNavigation from '../../components/Navigation/BottomNavigation/Botto
 const Playgrounds = (): JSX.Element => {
   return (
     <Styled.Container>
-      <Hero bgWallpaper={'/bg.jpg'}></Hero>
+      <Hero bgWallpaper={'/bg.jpg'}>
+        <Button>TEST</Button>
+        <Button isLoading>TEST</Button>
+        <Button disabled>TEST</Button>
+        <Button isCompleted>TEST</Button>
+      </Hero>
       <Screen>
         <h1>hello</h1>
         <p>
@@ -53,6 +59,10 @@ interface Props {
 const Hero = styled.div<Props>`
   height: 100vh;
   background-color: ${({ theme }) => theme.colors.primary.background};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 `;
 
 const Screen = styled.div`
