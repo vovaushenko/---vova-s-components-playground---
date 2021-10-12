@@ -2,11 +2,7 @@ import React from 'react';
 import * as Styled from './Playgrounds.styles';
 import styled from 'styled-components';
 import BottomNavigation from '../../components/Navigation/BottomNavigation/BottomNavigation';
-import SplitButton, {
-  SplitButtonOption,
-} from '../../components/Buttons/SplitButton/SplitButton';
-
-import { FiPrinter, FiSave, FiSettings } from 'react-icons/fi';
+import Carousel from '../../components/Cards/CarouselCard/Carousel/Carousel';
 
 /**
  *Renders playground screen where components will be tested
@@ -16,31 +12,19 @@ import { FiPrinter, FiSave, FiSettings } from 'react-icons/fi';
  */
 
 const Playgrounds = (): JSX.Element => {
-  const options: SplitButtonOption[] = [
-    {
-      id: 1,
-      text: 'Save draft',
-      icon: <FiSave className={'option__icon'} />,
-      action: () => alert('Save draft'),
-    },
-    {
-      id: 2,
-      text: 'Configure draft',
-      icon: <FiSettings className={'option__icon'} />,
-      action: () => alert('Configure draft'),
-    },
-    {
-      id: 3,
-      text: 'Print draft',
-      icon: <FiPrinter className={'option__icon'} />,
-      action: () => alert('Print draft'),
-    },
-  ];
-
   return (
     <Styled.Container>
       <Hero bgWallpaper={'/bg.jpg'}>
-        <SplitButton text={'Send'} options={options} />
+        <Carousel
+          images={[
+            { href: '/ultimate-cart/1.jpg' },
+            { href: '/ultimate-cart/2.jpg' },
+            { href: '/ultimate-cart/1.jpg' },
+            { href: '/ultimate-cart/2.jpg' },
+            { href: '/ultimate-cart/1.jpg' },
+            { href: '/ultimate-cart/2.jpg' },
+          ]}
+        />
       </Hero>
       <Screen>
         <h1>hello</h1>

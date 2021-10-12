@@ -44,7 +44,7 @@ export const useNavbarConfig = (): HookReturnType => {
       href: 'https://www.linkedin.com/in/vovau/',
     },
     {
-      id: 2,
+      id: 3,
       text: 'FiInstagram',
       icon: <FiInstagram className={'button__icon'} />,
       href: 'https://www.instagram.com/vovacodes/',
