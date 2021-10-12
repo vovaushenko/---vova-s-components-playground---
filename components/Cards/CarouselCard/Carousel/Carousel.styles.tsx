@@ -33,32 +33,6 @@ export const Badge = styled.span`
   font-size: ${({ theme }) => theme.textFontSize.sm};
 `;
 
-const swipeButtonStyles = css`
-  /* RESET */
-  all: unset;
-  /* POSITION */
-  position: absolute;
-  top: 50%;
-  /* DISPLAY */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* STYLING */
-  padding: ${({ theme }) => theme.spacing.xxs};
-  color: ${({ theme }) => theme.colors.gray.dark};
-  cursor: pointer;
-  border-radius: 50%;
-
-  background-color: rgba(255, 255, 255, 0.9);
-  box-shadow: ${({ theme }) => theme.boxShadows.base};
-
-  transition: opacity 0.2s ease-in;
-
-  & .chevron__icon {
-    font-size: 1rem;
-  }
-`;
-
 const visibleStyles = css`
   opacity: 1;
   pointer-events: auto;
@@ -72,28 +46,76 @@ interface SwipeControlProps {
   isOnScreen: boolean;
 }
 
-export const SwipeBack = styled.button<SwipeControlProps>`
-  ${swipeButtonStyles};
+export const SwipeLeft = styled.div<SwipeControlProps>`
+  position: absolute;
+  top: 50%;
   left: 1rem;
-
+  transition: opacity 0.2s ease-in;
   ${({ isOnScreen }) => (isOnScreen ? visibleStyles : hiddenStyles)};
 `;
-
-export const SwipeForward = styled.button<SwipeControlProps>`
-  ${swipeButtonStyles};
+export const SwipeRight = styled.div<SwipeControlProps>`
+  position: absolute;
+  top: 50%;
+  transition: opacity 0.2s ease-in;
   right: 1rem;
-
   ${({ isOnScreen }) => (isOnScreen ? visibleStyles : hiddenStyles)};
 `;
 
-export const AnimatedImage = styled.figure`
+export const SwipeButton = styled.button`
+  /* RESET */
+  all: unset;
+
+  /* DISPLAY */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* STYLING */
+  padding: ${({ theme }) => theme.spacing.xxs};
+  color: ${({ theme }) => theme.colors.gray.dark};
+  cursor: pointer;
+  border-radius: 50%;
+
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: ${({ theme }) => theme.boxShadows.base};
+
+  & .chevron__icon {
+    font-size: 1rem;
+  }
+`;
+
+const swipeLeftAnimation = css`
   animation: slide-in-right 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   @keyframes slide-in-right {
     0% {
       transform: translateX(250px);
+      filter: blur(10px);
     }
     100% {
       transform: translateX(0);
+      filter: blur(0);
     }
   }
+`;
+const swipeRightAnimation = css`
+  @keyframes slide-in-left {
+    0% {
+      transform: translateX(-250px);
+      filter: blur(10px);
+    }
+    100% {
+      transform: translateX(0);
+      filter: blur(0);
+    }
+  }
+
+  animation: slide-in-left 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+`;
+
+interface Props {
+  swipeDirection: 'left' | 'right' | null;
+}
+
+export const AnimatedImage = styled.figure<Props>`
+  ${({ swipeDirection }) => swipeDirection === 'right' && swipeRightAnimation};
+  ${({ swipeDirection }) => swipeDirection === 'left' && swipeLeftAnimation};
 `;

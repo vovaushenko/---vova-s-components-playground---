@@ -27,16 +27,21 @@ const Carousel = ({ images }: Props): JSX.Element => {
     images[imageId]
   );
   const isHovered = useHover(containerRef);
+  const [swipeDirection, setSwipeDirection] = useState<'left' | 'right' | null>(
+    null
+  );
 
   const swipeToNextImage = () => {
     let nextId = imageId + 1;
     if (nextId >= images.length) nextId = images.length - 1;
     setImageId(nextId);
+    setSwipeDirection('right');
   };
   const swipeToPrevImage = () => {
     let nextId = imageId - 1;
     if (nextId < 0) nextId = 0;
     setImageId(nextId);
+    setSwipeDirection('left');
   };
 
   useEffect(() => {
@@ -58,7 +63,7 @@ const Carousel = ({ images }: Props): JSX.Element => {
         </Boop>
       </Styled.Header>
 
-      <Styled.AnimatedImage key={imageId}>
+      <Styled.AnimatedImage key={imageId} swipeDirection={swipeDirection}>
         <Image
           src={displayedImg.href}
           height={300}
@@ -67,21 +72,22 @@ const Carousel = ({ images }: Props): JSX.Element => {
           className={'carousel__image'}
         />
       </Styled.AnimatedImage>
-      <Boop boopConfig={{ x: 3 }}>
-        <Styled.SwipeForward
-          onClick={swipeToNextImage}
-          isOnScreen={isRightControlShown}
-        >
-          <FiChevronRight className={'chevron__icon'} />
-        </Styled.SwipeForward>
-      </Boop>
 
-      <Styled.SwipeBack
-        onClick={swipeToPrevImage}
-        isOnScreen={isLeftControlShown}
-      >
-        <FiChevronLeft className={'chevron__icon'} />
-      </Styled.SwipeBack>
+      <Styled.SwipeRight isOnScreen={isRightControlShown}>
+        <Boop boopConfig={{ x: 3 }}>
+          <Styled.SwipeButton onClick={swipeToNextImage}>
+            <FiChevronRight className={'chevron__icon'} />
+          </Styled.SwipeButton>
+        </Boop>
+      </Styled.SwipeRight>
+
+      <Styled.SwipeLeft isOnScreen={isLeftControlShown}>
+        <Boop boopConfig={{ x: -3 }}>
+          <Styled.SwipeButton onClick={swipeToPrevImage}>
+            <FiChevronLeft className={'chevron__icon'} />
+          </Styled.SwipeButton>
+        </Boop>
+      </Styled.SwipeLeft>
     </Styled.Container>
   );
 };
