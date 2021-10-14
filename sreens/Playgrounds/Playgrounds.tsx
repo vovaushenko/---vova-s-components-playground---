@@ -1,8 +1,8 @@
 import React from 'react';
-import * as Styled from './Playgrounds.styles';
 import styled from 'styled-components';
 import BottomNavigation from '../../components/Navigation/BottomNavigation/BottomNavigation';
-import Carousel from '../../components/Cards/CarouselCard/Carousel/Carousel';
+import * as Styled from './Playgrounds.styles';
+import UltimateCard from '../../showcase/UltimateCard/UltimateCard';
 
 /**
  *Renders playground screen where components will be tested
@@ -12,18 +12,29 @@ import Carousel from '../../components/Cards/CarouselCard/Carousel/Carousel';
  */
 
 const Playgrounds = (): JSX.Element => {
+  const onKey = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    console.log(e.code);
+  };
+
   return (
     <Styled.Container>
-      <Hero bgWallpaper={'/bg.jpg'}>
-        <Carousel
-          images={[
-            { href: '/ultimate-cart/1.jpg' },
-            { href: '/ultimate-cart/2.jpg' },
-            { href: '/ultimate-cart/1.jpg' },
-            { href: '/ultimate-cart/2.jpg' },
-            { href: '/ultimate-cart/1.jpg' },
-            { href: '/ultimate-cart/2.jpg' },
-          ]}
+      <Hero bgWallpaper={'/bg.jpg'} onKeyDown={onKey}>
+        <UltimateCard
+          url={'https://www.google.com/'}
+          title={'Cool card'}
+          imgSrc={'/ultimate-cart/1.jpg'}
+          description={'Some description'}
+          isLoading={true}
+          variant={'simple'}
+        />
+        <UltimateCard
+          variant={'animated'}
+          url={'https://www.google.com/'}
+          title={'Cool card'}
+          imgSrc={'/ultimate-cart/1.jpg'}
+          description={'Some description'}
+          animationDelay={150}
+          isLoading={false}
         />
       </Hero>
       <Screen>

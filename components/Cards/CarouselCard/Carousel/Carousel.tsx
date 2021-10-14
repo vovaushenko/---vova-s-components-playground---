@@ -51,13 +51,17 @@ const Carousel = ({ images }: Props): JSX.Element => {
   const isLeftControlShown = isHovered && imageId !== 0;
   const isRightControlShown = isHovered && imageId !== images.length - 1;
 
+  const testClick = (e: React.PointerEvent<HTMLButtonElement>) => {
+    alert(e.pageY);
+  };
+
   return (
     <Styled.Container ref={containerRef}>
       <Styled.Header>
         <Styled.Badge>superhost</Styled.Badge>
 
         <Boop boopConfig={{ rotation: 15 }}>
-          <IconButton renderAs={'button'}>
+          <IconButton renderAs={'button'} onClick={testClick}>
             <FiHeart className="button__icon" />
           </IconButton>
         </Boop>

@@ -1,52 +1,74 @@
-import styled, { css, keyframes } from 'styled-components';
+import styled, { css } from 'styled-components';
 
 interface Props {
   bgImg: string;
   cardGradientColor: string;
-  animationDelay: number;
   isLoading: boolean;
+  variant: 'simple' | 'animated';
+  animationDelay?: number | never;
 }
+
+/***
+ * CARD CUSTOM PROPS
+ */
+export const lightThemeCssProps = css`
+  --cardBg: ${({ theme }) => theme.colors.gray.invisible};
+  --cardTextColor: ${({ theme }) => theme.colors.white.standard};
+  --skeletonItemColor: ${({ theme }) => theme.colors.white.standard};
+  --loadingWaveColor: rgba(255, 255, 255, 0.5);
+`;
+export const darkThemeCssProps = css`
+  --cardBg: ${({ theme }) => theme.colors.gray.bg};
+  --cardTextColor: ${({ theme }) => theme.colors.white.standard};
+  --skeletonItemColor: ${({ theme }) => theme.colors.gray.card};
+  --loadingWaveColor: rgba(133, 133, 133, 0.2);
+`;
 
 /***
  * LOADING CARD STATE
  */
-const movingGradient = css`repeating-linear-gradient(60deg,
-transparent,
-transparent 10px,
-${({ theme }) => theme.colors.yellow.golden} 10px,
-${({ theme }) => theme.colors.yellow.golden} 20px)
-`;
-const loadingKeyframes = keyframes`
-  0% {
-    transform: translateX(25px);
-  }
-  100% {
-    transform: translateX(-20px);
-  }
-`;
-
 const loadingCartStyles = css`
-  &::before {
+  flex-direction: column;
+  gap: ${({ theme }) => theme.spacing.sm};
+  align-items: flex-start;
+
+  background: var(--cardBg);
+  cursor: wait;
+
+  @keyframes loading {
+    0% {
+      transform: skewX(-10deg) translateX(-100%);
+    }
+    100% {
+      transform: skewX(-10deg) translateX(200%);
+    }
+  }
+
+  & ::before {
     content: '';
     position: absolute;
-    z-index: 1;
-    top: 0;
-    left: -100%;
-    width: 300%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--loadingWaveColor),
+      transparent
+    );
+    width: 50%;
     height: 100%;
-    background: ${({ theme }) => theme.colors.yellow.darkGolden}
-      ${movingGradient};
-    animation: ${loadingKeyframes} 2s infinite linear;
-  }
+    top: 0;
+    left: 0;
 
-  cursor: wait;
+    animation: loading 0.7s infinite;
+  }
 `;
 
-export const hoveredCardStyles = css``;
-export const activeCardStyles = css`
+const hoveredCardStyles = css``;
+
+const activeCardStyles = css`
   transform: scale(0.99);
 `;
-export const cardAnimation = css`
+
+const cardAppearanceAnimation = css<Props>`
   animation: slide-in-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   @keyframes slide-in-bottom {
     0% {
@@ -58,13 +80,18 @@ export const cardAnimation = css`
       opacity: 1;
     }
   }
+  animation-delay: ${({ animationDelay }) => `${animationDelay}ms`};
 `;
 
 export const Container = styled.article<Props>`
+  ${({ theme }) =>
+    theme.theme === 'dark' ? darkThemeCssProps : lightThemeCssProps};
+
   position: relative;
   display: flex;
   align-items: flex-end;
-  background-color: ${({ theme }) => theme.colors.gray.card};
+  color: var(--cardTextColor);
+  background: var(--cardBg);
   padding: ${({ theme }) => theme.spacing.md};
   overflow: hidden;
 
@@ -80,14 +107,13 @@ export const Container = styled.article<Props>`
     ${hoveredCardStyles}
   }
 
-  ${cardAnimation};
-  animation-delay: ${({ animationDelay }) => `${animationDelay}ms`};
-
   &:active {
     ${activeCardStyles}
   }
 
   ${({ isLoading }) => isLoading && loadingCartStyles};
+
+  ${({ variant }) => variant === 'animated' && cardAppearanceAnimation}
 `;
 
 export const Figcaption = styled.figcaption`
@@ -119,3 +145,15 @@ export const ExternalLink = styled.a`
 `;
 
 export const Figure = styled.figure``;
+
+export const SkeletonImg = styled.div`
+  height: 80%;
+  width: 100%;
+  background: var(--skeletonItemColor);
+`;
+
+export const SkeletonText = styled.span`
+  width: 50%;
+  height: 3rem;
+  background: var(--skeletonItemColor);
+`;
