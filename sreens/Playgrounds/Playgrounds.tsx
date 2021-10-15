@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import BottomNavigation from '../../components/Navigation/BottomNavigation/BottomNavigation';
 import * as Styled from './Playgrounds.styles';
-import UltimateCard from '../../showcase/UltimateCard/UltimateCard';
+import IsomorphicBtn from '../../components/Buttons/IsomorphicBtn/IsomorphicBtn';
 
 /**
  *Renders playground screen where components will be tested
@@ -12,30 +12,10 @@ import UltimateCard from '../../showcase/UltimateCard/UltimateCard';
  */
 
 const Playgrounds = (): JSX.Element => {
-  const onKey = (e: React.KeyboardEvent<HTMLDivElement>) => {
-    console.log(e.code);
-  };
-
   return (
     <Styled.Container>
-      <Hero bgWallpaper={'/bg.jpg'} onKeyDown={onKey}>
-        <UltimateCard
-          url={'https://www.google.com/'}
-          title={'Cool card'}
-          imgSrc={'/ultimate-cart/1.jpg'}
-          description={'Some description'}
-          isLoading={true}
-          variant={'simple'}
-        />
-        <UltimateCard
-          variant={'animated'}
-          url={'https://www.google.com/'}
-          title={'Cool card'}
-          imgSrc={'/ultimate-cart/1.jpg'}
-          description={'Some description'}
-          animationDelay={150}
-          isLoading={false}
-        />
+      <Hero bgWallpaper={'/bg.jpg'}>
+        <IsomorphicBtn onClick={() => alert('click')}>HELLO</IsomorphicBtn>
       </Hero>
       <Screen>
         <h1>hello</h1>
