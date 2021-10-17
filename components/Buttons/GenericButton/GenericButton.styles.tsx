@@ -36,11 +36,11 @@ const disabledButton = css`
 const activeButton = css`
   transform: scale(0.97);
 
-  :before {
-    display: none;
+  & :before {
+    visibility: hidden;
   }
 
-  :after {
+  & :after {
     content: '';
     position: absolute;
     z-index: 1;
