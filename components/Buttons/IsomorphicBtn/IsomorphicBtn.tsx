@@ -8,7 +8,6 @@ type ButtonProps<T extends ElementType> = {
 
 /**
  *@function IsomorphicButton
- *@param {number} prop -
  *@returns {JSX.Element} - Rendered CardContent component
  */
 const IsomorphicBtn = <T extends ElementType = 'button'>({
@@ -18,7 +17,7 @@ const IsomorphicBtn = <T extends ElementType = 'button'>({
 }: ButtonProps<T> &
   Omit<ComponentPropsWithoutRef<T>, keyof ButtonProps<T>>): JSX.Element => {
   return (
-    <IsomorphicButton as={as} {...rest}>
+    <IsomorphicButton as={as as ElementType} {...rest}>
       {children}
     </IsomorphicButton>
   );

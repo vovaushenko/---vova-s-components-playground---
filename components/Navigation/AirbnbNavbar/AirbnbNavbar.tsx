@@ -8,12 +8,15 @@ import Logo from './Logo/Logo';
 import IconButton from '../../Buttons/IconButton/IconButton';
 import Boop from '../../Animations/Boop/Boop';
 import ExpandButton from './ExpandButton/ExpandButton';
+import { useMediaQuery } from '@react-hook/media-query';
+import MobileNavbar from './MobileNavbar/MobileNavbar';
 
 /**
  *@function AirbnbNavbar
  *@returns {JSX.Element} - Rendered CardContent component
  */
 const AirbnbNavbar = (): JSX.Element => {
+  const isOnMobile = useMediaQuery('only screen and (max-width: 768px)');
   const navbarRef = useRef<Maybe<HTMLDivElement>>(null);
   const [navbarHeight, setNavbarHeight] = useState<Maybe<number>>(null);
   const [scrollY, setScrollY] = useState<Maybe<number>>(null);
@@ -58,7 +61,9 @@ const AirbnbNavbar = (): JSX.Element => {
     setLinksExpanded((prev) => !prev);
   }, []);
 
-  return (
+  return isOnMobile ? (
+    <MobileNavbar />
+  ) : (
     <S.Container
       ref={navbarRef}
       isNavbarTransparent={isNavbarTransparent}

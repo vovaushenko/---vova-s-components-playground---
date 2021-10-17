@@ -15,6 +15,12 @@ const Playgrounds = (): JSX.Element => {
     <Styled.Container>
       <Screen>
         <UltimateButton>DEFAULT BUTTON</UltimateButton>
+        <UltimateButton
+          renderAs="a"
+          href="https://github.com/emotion-js/emotion/issues/1137"
+        >
+          DEFAULT BUTTON
+        </UltimateButton>
       </Screen>
       <Screen>
         <h1>hello</h1>

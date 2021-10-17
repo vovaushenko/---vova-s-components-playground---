@@ -104,6 +104,7 @@ interface StyledButtonProps {
   isLoading?: boolean;
   isCompleted?: boolean;
   disabled?: boolean;
+  as?: React.ElementType;
 }
 
 export const BTN = styled.button<StyledButtonProps>`

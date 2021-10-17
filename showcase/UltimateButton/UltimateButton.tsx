@@ -19,7 +19,7 @@ const UltimateButton = <T extends ElementType = 'button'>({
 }: ButtonProps<T>): JSX.Element => {
   return (
     <Styled.BTN
-      as={renderAs}
+      as={renderAs as ElementType}
       isLoading={isLoading}
       isCompleted={isCompleted}
       {...rest}
