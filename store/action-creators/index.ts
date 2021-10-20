@@ -1,4 +1,5 @@
 import { UiActionCreators } from '../reducers/ui/ui-action-creators';
+import { ArticleActionCreators } from '../reducers/articles/article-action-creators';
 
 /**
  * This object combines all available redux action creators
@@ -6,6 +7,7 @@ import { UiActionCreators } from '../reducers/ui/ui-action-creators';
  */
 export const CombinedActionCreators = {
   ...UiActionCreators,
+  ...ArticleActionCreators,
 };
 
 export type CombinedActionsType = typeof CombinedActionCreators;
