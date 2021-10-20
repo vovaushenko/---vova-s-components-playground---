@@ -14,13 +14,10 @@ const Playgrounds = (): JSX.Element => {
   return (
     <Styled.Container>
       <Screen>
-        <UltimateButton>DEFAULT BUTTON</UltimateButton>
-        <UltimateButton
-          renderAs="a"
-          href="https://github.com/emotion-js/emotion/issues/1137"
-        >
-          DEFAULT BUTTON
-        </UltimateButton>
+        <UltimateButton isLoading>BUTTON</UltimateButton>
+        <UltimateButton disabled>Disabled</UltimateButton>
+        <UltimateButton isCompleted>Completed</UltimateButton>
+        <UltimateButton>BUTTON</UltimateButton>
       </Screen>
       <Screen>
         <h1>hello</h1>
@@ -45,6 +42,7 @@ const Screen = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
   padding: 3rem;
 `;
 

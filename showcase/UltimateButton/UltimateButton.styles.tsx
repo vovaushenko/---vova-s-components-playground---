@@ -1,9 +1,8 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 const buttonCustomProps = css`
-  /* 💡 we can use styled components global theme provider to initialize our custom props */
-  --mainBg: ${({ theme }) => theme.colors.yellow.golden};
   --mainBg: rgb(255, 193, 48);
+  --secondaryBg: rgb(255, 165, 0);
   --disabledBg: rgb(34, 34, 34);
   --mainTextColor: rgb(255, 255, 255);
   --textShadow: rgb(0 0 0 / 15%) 1px 1px 1px;
@@ -12,6 +11,7 @@ const buttonCustomProps = css`
   --fontWeight: 600;
   --borderRadius: 4px;
   --outlineColor: rgb(131, 238, 255);
+  --greenSuccess: rgb(75, 181, 67);
 `;
 
 const defaultButton = css`
@@ -92,12 +92,37 @@ const activeButton = css`
     border-radius: 14px 14px 14px 14px/ 4px 4px 100px 100px;
   }
 `;
-const loadingButton = css`
-  background-color: yellow;
+const completedButton = css`
+  background: var(--greenSuccess);
 `;
 
-const completedButton = css`
-  background-color: orange;
+const loadingAnimation = keyframes`
+  0% {
+    transform: translateX(25px);
+  }
+  100% {
+    transform: translateX(-20px);
+  }
+`;
+
+const loadingButton = css`
+  cursor: wait;
+
+  &::before {
+    content: '';
+    left: -100%;
+    width: 400%;
+    height: 100%;
+    background: var(--mainBg)
+      repeating-linear-gradient(
+        60deg,
+        transparent,
+        transparent 10px,
+        var(--secondaryBg) 5px,
+        var(--secondaryBg) 20px
+      );
+    animation: ${loadingAnimation} 2s infinite linear;
+  }
 `;
 
 interface StyledButtonProps {
