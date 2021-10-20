@@ -1,39 +1,33 @@
-import {
-  UIaction,
-  UIactionTypes,
-  UIstate,
-} from '../../types/redux/ui-reducer-types';
+import { UiAction, UiActionTypes, UIstate } from './types';
 
-const initialUIstate: UIstate = {
+const initialUiState: UIstate = {
   theme: 'dark',
   isSettingsWidgetOpen: false,
 };
 /**
- *@function uiReducer
- *@param {UIstate} state - state of reducer
+ *@function index
+ *@param {UiState} state - state of reducer
  *@param {object} action - action to be reduced
  *@returns {object} - new review state
  */
-
-export const uiReducer = (
-  state = initialUIstate,
-  action: UIaction
-): UIstate => {
+const uiReducer = (state = initialUiState, action: UiAction): UIstate => {
   switch (action.type) {
-    case UIactionTypes.CHANGE_THEME:
+    case UiActionTypes.CHANGE_THEME:
       const newTheme = state.theme === 'dark' ? 'light' : 'dark';
       return { ...state, theme: newTheme };
 
-    case UIactionTypes.OPEN_SETTINGS_WIDGET:
+    case UiActionTypes.OPEN_SETTINGS_WIDGET:
       return {
         ...state,
         isSettingsWidgetOpen: true,
       };
 
-    case UIactionTypes.CLOSE_SETTINGS_WIDGET:
+    case UiActionTypes.CLOSE_SETTINGS_WIDGET:
       return { ...state, isSettingsWidgetOpen: false };
 
     default:
       return state;
   }
 };
+
+export default uiReducer;

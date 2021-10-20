@@ -1,5 +1,5 @@
 import { TypedUseSelectorHook, useSelector } from 'react-redux';
-import { LocalRootState } from '../store/reducers';
+import { AppState } from '../store';
 
 /**
  * A hook to access the redux store's state. This hook takes a selector function as an argument. The selector is called with the store state.
@@ -7,5 +7,4 @@ import { LocalRootState } from '../store/reducers';
  *@function useTypedSelector
  *@returns {function} typed useSelectorHook
  */
-export const useTypedSelector: TypedUseSelectorHook<LocalRootState> =
-  useSelector;
+export const useTypedSelector: TypedUseSelectorHook<AppState> = useSelector;
