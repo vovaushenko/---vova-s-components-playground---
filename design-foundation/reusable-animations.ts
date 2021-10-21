@@ -84,3 +84,20 @@ export const trackingInExpand = keyframes`
     opacity: 1;
   }
 `;
+
+/**
+ * @keyframes floatKeyframes
+ * @returns {keyframes} - keyframes for element's floating effect
+ * @example  animation: ${float} 6s ease-in-out infinite;
+ */
+export const floatKeyframes = keyframes`
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+`;

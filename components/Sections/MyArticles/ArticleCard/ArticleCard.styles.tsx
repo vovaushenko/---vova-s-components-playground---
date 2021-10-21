@@ -1,11 +1,6 @@
 import styled from 'styled-components';
 import { a11yOutlineHighlight } from '../../../../design-foundation/reusable-styles';
 
-export const Title = styled.h3`
-  font-size: ${({ theme }) => theme.headingFontSize.h2};
-  transition: color 0.2s ease-in-out;
-`;
-
 interface ContainerProps {
   isHovered: boolean;
 }
@@ -21,15 +16,10 @@ export const Container = styled.article<ContainerProps>`
   padding: ${({ theme }) => theme.spacing.lg};
   border-radius: ${({ theme }) => theme.border.primary};
 
-  ${Title} {
+  h3 {
     color: ${({ isHovered, theme }) =>
       isHovered ? theme.colors.primary.accent : 'inherit'};
   }
-`;
-
-export const Text = styled.p`
-  margin-top: ${({ theme }) => theme.spacing.xs};
-  line-height: 1.7;
 `;
 
 export const ReadMore = styled.a`

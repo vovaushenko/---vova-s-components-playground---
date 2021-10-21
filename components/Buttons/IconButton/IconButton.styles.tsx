@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.button`
+  z-index: ${({ theme }) => theme.zIndex.lowPriority};
   cursor: pointer;
   background-color: transparent;
   border: 0;

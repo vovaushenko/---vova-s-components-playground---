@@ -4,6 +4,8 @@ import { IDevToArticle } from '../../../../models/IDevToArticle';
 import useHover from '../../../../hooks/useHover';
 import { FiChevronsRight } from 'react-icons/fi';
 import Boop from '../../../Animations/Boop/Boop';
+import Paragraph from '../../../Typography/Paragraph/Paragraph';
+import Heading from '../../../Typography/Heading/Heading';
 
 export interface ArticleProps {
   article: IDevToArticle;
@@ -22,13 +24,13 @@ const ArticleCard = ({ article }: ArticleProps): JSX.Element => {
   return (
     <Boop boopConfig={{ scale: 1.001, x: 2 }}>
       <Styled.Container ref={articleRef} isHovered={isHovered}>
-        <Styled.Title>{title}</Styled.Title>
+        <Heading>{title}</Heading>
         <Styled.TagList>
           {tag_list.map((tag, id) => (
             <Styled.Tag key={id}>{tag}</Styled.Tag>
           ))}
         </Styled.TagList>
-        <Styled.Text>{body_markdown.slice(0, 350) + ' ... '}</Styled.Text>
+        <Paragraph>{body_markdown.slice(0, 350) + ' ... '}</Paragraph>
         <Styled.ReadMore href={url} target="_blank" rel="noopener">
           Read More
           {isHovered && (
