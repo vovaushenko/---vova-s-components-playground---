@@ -2,6 +2,7 @@ import React from 'react';
 import * as Styled from './ComponentsList.styles';
 import { IComponentArticle } from '../../../../models/IComponentArticle';
 import SectionHeader from '../../../Typography/SectionHeader/SectionHeader';
+import ComponentArticle from '../ComponentArticle/ComponentArticle';
 
 export interface ComponentsListProps {
   releasedComponents: IComponentArticle[];
@@ -21,11 +22,7 @@ const ComponentsList = ({
       <SectionHeader variant={'l'}>Released Components</SectionHeader>
       {releasedComponents.map((component) => (
         <>
-          <h3>{component.title}</h3>
-          <p>{component.description}</p>
-          <Styled.LevitatingWrapper>
-            {component.component}
-          </Styled.LevitatingWrapper>
+          <ComponentArticle key={component.id} component={component} />
         </>
       ))}
     </Styled.Container>
