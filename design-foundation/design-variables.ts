@@ -43,6 +43,7 @@ export const colors = {
   primary: {
     text: 'rgb(34, 34, 34)',
     background: '#f7f7f7',
+    secondaryBg: 'rgb(99, 188, 233)',
     accent: 'rgb(93, 63, 211)',
     accentDark: '#01bf71',
     purple: '#4831d4',
@@ -86,6 +87,7 @@ export const darkColors = {
   primary: {
     text: 'rgba(255, 255, 255, 0.95)',
     background: '#010606',
+    secondaryBg: 'rgb(14, 20, 27)',
     accent: '#2bff88',
     accentDark: '#01bf71',
     purple: '#4831d4',
@@ -180,7 +182,7 @@ export type AppTextFSType = typeof textFontSizes;
 export const headingFontSizes = {
   h1: '1.375rem', // 22px
   h2: '1.375rem', // 22px
-  h3: '1rem', // 16px
+  h3: '1.2rem', // 16px
   h4: '1.125rem', // 18px
   h5: '0.75rem', // 12px
   h6: '0.75rem', // 12px
@@ -238,7 +240,13 @@ export type AppSpacingType = typeof spacing;
 =============================================*/
 
 /* Border radius */
-export const borderRadii = { base: '4px' };
+export const borderRadii = {
+  base: '4px',
+  primary: '0.75rem',
+  s: '4px',
+  m: '5px',
+  l: '6px',
+};
 export type AppBorderRadiiType = typeof borderRadii;
 
 /* Box Shadows */

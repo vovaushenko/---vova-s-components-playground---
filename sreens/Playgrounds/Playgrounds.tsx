@@ -21,15 +21,6 @@ const Playgrounds = (): JSX.Element => {
       </Screen>
       <Screen>
         <h1>hello</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim et
-          expedita in iure, laborum natus quaerat repellendus voluptatem.
-          Eligendi excepturi quas ratione vero voluptatibus. Accusantium magni
-          numquam velit. Dolore facere fugiat modi molestias nesciunt pariatur
-          quod reiciendis reprehenderit vero, voluptates. Ab animi asperiores
-          deserunt ea, excepturi expedita, placeat porro possimus quasi quisquam
-          saepe tenetur vitae.
-        </p>
       </Screen>
     </Styled.Container>
   );
@@ -38,7 +29,6 @@ const Playgrounds = (): JSX.Element => {
 const Screen = styled.div`
   max-width: 100vw;
   min-height: 100vh;
-  background-color: ${({ theme }) => theme.colors.gray.bg};
   display: flex;
   align-items: center;
   justify-content: center;

@@ -1,11 +1,11 @@
 import type { GetStaticProps, NextPage } from 'next';
 import React from 'react';
-import Playgrounds from '../sreens/Playgrounds/Playgrounds';
 import PageLayout from '../components/Layout/PageLayout/PageLayout';
 import { NextThunkDispatch, wrapper } from '../store';
 import { ArticleActionCreators } from '../store/reducers/articles/article-action-creators';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import Landing from '../sreens/Landing/Landing';
 
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   (store) => async () => {
@@ -23,7 +23,7 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
 const Home: NextPage = () => {
   return (
     <PageLayout>
-      <Playgrounds />
+      <Landing />
     </PageLayout>
   );
 };

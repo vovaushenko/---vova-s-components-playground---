@@ -14,4 +14,5 @@ export interface IDevToArticle {
   page_views_count: number;
   cover_image: string;
   tag_list: string[];
+  body_markdown: string;
 }
