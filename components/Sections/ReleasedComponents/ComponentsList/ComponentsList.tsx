@@ -21,9 +21,7 @@ const ComponentsList = ({
     <Styled.Container>
       <SectionHeader variant={'l'}>Released Components</SectionHeader>
       {releasedComponents.map((component) => (
-        <>
-          <ComponentArticle key={component.id} component={component} />
-        </>
+        <ComponentArticle key={component.id} component={component} />
       ))}
     </Styled.Container>
   );

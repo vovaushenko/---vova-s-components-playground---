@@ -12,3 +12,4 @@ export const LandingSection = styled.section<ContainerProps>`
 `;
 
 export const ArticlesSection = styled.section``;
+export const ComponentsSection = styled.section``;

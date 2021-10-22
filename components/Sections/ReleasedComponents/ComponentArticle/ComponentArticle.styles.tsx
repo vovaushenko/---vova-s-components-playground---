@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { a11yOutlineHighlight } from '../../../../design-foundation/reusable-styles';
 import { floatKeyframes } from '../../../../design-foundation/reusable-animations';
 
 interface ContainerProps {
@@ -13,7 +12,8 @@ export const Container = styled.article<ContainerProps>`
 
   cursor: pointer;
   background-color: ${({ theme }) => theme.colors.primary.background};
-  padding: ${({ theme }) => theme.spacing.xl};
+  padding: ${({ theme }) => theme.spacing.lg};
+  padding: ${({ theme }) => `${theme.spacing.xl} ${theme.spacing.md}`};
   border-radius: ${({ theme }) => theme.border.primary};
 
   h3 {
@@ -32,10 +32,10 @@ export const LinksColumn = styled.aside`
 `;
 
 export const TextColumn = styled.div`
-  flex: 0.4;
+  flex: 0.6;
 `;
 export const ComponentColumn = styled.div`
-  flex: 0.4;
+  flex: 0.35;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -49,39 +49,4 @@ export const LinksWrapper = styled.div`
 
 export const WithLevitation = styled.div`
   animation: ${floatKeyframes} 5s ease-in-out infinite;
-`;
-
-export const A = styled.a`
-  display: flex;
-  font-size: ${({ theme }) => theme.headingFontSize.h3};
-  font-weight: ${({ theme }) => theme.fontWeights.bold};
-  color: ${({ theme }) => theme.colors.primary.text};
-  outline: 0;
-
-  :focus-visible::after {
-    ${a11yOutlineHighlight};
-    border-radius: ${({ theme }) => theme.border.primary};
-  }
-
-  :after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-  }
-`;
-
-export const ArrowIcon = styled.span`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: ${({ theme }) => theme.spacing.xs};
-
-  .icon {
-    margin-top: 3px;
-    color: ${({ theme }) => theme.colors.primary.accent};
-    font-size: ${({ theme }) => theme.textFontSize.lg};
-  }
 `;

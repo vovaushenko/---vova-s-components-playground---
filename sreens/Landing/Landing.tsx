@@ -5,6 +5,8 @@ import { useTypedSelector } from '../../hooks/useTypedSelector';
 import ScrollHint from '../../components/UI/ScrollHint/ScrollHint';
 import SectionHeader from '../../components/Typography/SectionHeader/SectionHeader';
 import RecentDevToArticles from '../../components/Sections/MyArticles/RecentDevToArticles/RecentDevToArticles';
+import { useComponentsListConfig } from '../../components/Sections/ReleasedComponents/ComponentsList/ComponentsList.config';
+import ComponentsList from '../../components/Sections/ReleasedComponents/ComponentsList/ComponentsList';
 
 /**
  *Renders Landing Screen
@@ -15,6 +17,7 @@ import RecentDevToArticles from '../../components/Sections/MyArticles/RecentDevT
 const Landing: React.FunctionComponent = (): JSX.Element => {
   const { theme } = useTypedSelector((state) => state.ui);
   const { devToArticles } = useTypedSelector((state) => state.articles);
+  const { releasedComponents } = useComponentsListConfig();
   const DIVIDER_HEIGHT = '350px';
   const TOP_WAVE_DIVIDER =
     theme === 'dark'
@@ -39,6 +42,9 @@ const Landing: React.FunctionComponent = (): JSX.Element => {
         waveImg={BOTTOM_WAVE_DIVIDER}
         dividerHeight={DIVIDER_HEIGHT}
       />
+      <Styled.ComponentsSection>
+        <ComponentsList releasedComponents={releasedComponents} />
+      </Styled.ComponentsSection>
 
       <Styled.ArticlesSection>
         <RecentDevToArticles devToArticles={devToArticles} />

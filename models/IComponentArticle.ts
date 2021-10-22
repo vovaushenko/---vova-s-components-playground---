@@ -6,4 +6,6 @@ export interface IComponentArticle {
   description: string;
   href: string;
   component: ReactNode;
+  gitHubLink: string;
+  gitHub1sLink: string;
 }
