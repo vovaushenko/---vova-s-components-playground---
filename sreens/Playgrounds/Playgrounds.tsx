@@ -19,9 +19,6 @@ const Playgrounds = (): JSX.Element => {
         <UltimateButton isCompleted>Completed</UltimateButton>
         <UltimateButton>BUTTON</UltimateButton>
       </Screen>
-      <Screen>
-        <h1>hello</h1>
-      </Screen>
     </Styled.Container>
   );
 };

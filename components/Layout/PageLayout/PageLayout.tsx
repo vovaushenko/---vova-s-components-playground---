@@ -3,6 +3,7 @@ import AirbnbNavbar from '../../Navigation/AirbnbNavbar/AirbnbNavbar';
 import SettingsControl from '../../UI/SettingsControl/SettingsControl';
 import SettingsWidget from '../../Widgets/SettingsWidget/SettingsWidget';
 import styled from 'styled-components';
+import PlaygroundsFooter from '../../Footers/PlaygroundsFooter/PlaygroundsFooter';
 
 /**
  *@function PageLayout
@@ -15,6 +16,8 @@ const PageLayout: React.FunctionComponent = ({ children }): JSX.Element => {
       <SettingsControl />
       <SettingsWidget />
       <Main>{children}</Main>
+
+      <PlaygroundsFooter />
     </LayoutContainer>
   );
 };
