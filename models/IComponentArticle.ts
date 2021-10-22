@@ -7,5 +7,5 @@ export interface IComponentArticle {
   href: string;
   component: ReactNode;
   gitHubLink: string;
-  gitHub1sLink: string;
+  openSourceCode: () => void;
 }

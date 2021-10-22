@@ -29,7 +29,7 @@ const ComponentArticle = ({
     title,
     href,
     gitHubLink,
-    gitHub1sLink,
+    openSourceCode,
   } = component;
 
   return (
@@ -47,7 +47,7 @@ const ComponentArticle = ({
           </IconButton>
         </Boop>
         <Boop boopConfig={{ rotation: -25, scale: 1.1, timing: 200 }}>
-          <IconButton renderAs={'link'} href={gitHub1sLink}>
+          <IconButton renderAs={'button'} onClick={openSourceCode}>
             <FiCode className="button__icon" />
           </IconButton>
         </Boop>

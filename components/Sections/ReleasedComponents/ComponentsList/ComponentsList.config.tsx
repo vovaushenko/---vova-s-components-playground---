@@ -1,9 +1,23 @@
 import { IComponentArticle } from '../../../../models/IComponentArticle';
 import UltimateButton from '../../../../showcase/UltimateButton/UltimateButton';
+import { useActions } from '../../../../hooks/useActions';
+import UltimateButtonGitHub from '../../../Iframes/GitHubExamples/UltimateButtonGitHub/UltimateButtonGitHub';
+import { useCallback } from 'react';
 
 export const useComponentsListConfig = (): {
   releasedComponents: IComponentArticle[];
 } => {
+  const { openModal } = useActions();
+
+  const openUltimateButtonSourceCode = useCallback(() => {
+    openModal({
+      id: 'ultimate-button',
+      height: '90vh',
+      width: '90vw',
+      content: <UltimateButtonGitHub />,
+    });
+  }, [openModal]);
+
   const releasedComponents: IComponentArticle[] = [
     {
       id: 1,
@@ -14,8 +28,7 @@ export const useComponentsListConfig = (): {
       href: '/playgrounds',
       gitHubLink:
         'https://github.com/vovaushenko/my-components-playground/tree/master/showcase/UltimateButton',
-      gitHub1sLink:
-        'https://github1s.com/vovaushenko/my-components-playground/blob/master/showcase/UltimateButton/UltimateButton.tsx',
+      openSourceCode: () => openUltimateButtonSourceCode(),
     },
     {
       id: 2,
@@ -26,8 +39,7 @@ export const useComponentsListConfig = (): {
       href: '/playgrounds',
       gitHubLink:
         'https://github.com/vovaushenko/my-components-playground/tree/master/showcase/UltimateButton',
-      gitHub1sLink:
-        'https://github1s.com/vovaushenko/my-components-playground/blob/master/showcase/UltimateButton/UltimateButton.tsx',
+      openSourceCode: () => openUltimateButtonSourceCode(),
     },
   ];
 
