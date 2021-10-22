@@ -101,3 +101,20 @@ export const floatKeyframes = keyframes`
     transform: translateY(0px);
   }
 `;
+/**
+ * @keyframes scaleInCenter
+ * @returns {keyframes} - keyframes for standard modal's appearance
+ * @example  animation: ${scaleInCenter} 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+ */
+export const scaleInCenter = keyframes`
+  0% {
+    transform: scale(0);
+    opacity: 1;
+    filter: blur(10px);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    filter: blur(0);
+  }
+`;

@@ -3,6 +3,8 @@ import { ReactNode } from 'react';
 export interface IModal {
   id: string;
   content: ReactNode;
+  height: string;
+  width: string;
 }
 
 export interface ModalsState {

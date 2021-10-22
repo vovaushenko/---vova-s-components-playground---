@@ -10,7 +10,6 @@ const transparentStyles = css`
   color: ${({ theme }) => theme.colors.primary.text};
 `;
 const nonTransparentStyles = css`
-  background-color: ${({ theme }) => theme.colors.white.standard};
   background-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   color: ${({ theme }) => theme.colors.primary.text};
