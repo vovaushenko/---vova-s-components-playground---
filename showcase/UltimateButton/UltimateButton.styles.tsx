@@ -44,6 +44,7 @@ const defaultButton = css`
   transition: 0.3s all ease;
 
   /* 3d - effect */
+
   :before {
     content: '';
     position: absolute;
@@ -148,10 +149,11 @@ export const BTN = styled.button<StyledButtonProps>`
     ${(p) => !p.disabled && !p.isLoading && !p.isCompleted && activeButton};
   }
 
-  &:disabled {
-    ${disabledButton};
-  }
   ${(p) => p.isLoading && loadingButton};
 
   ${(p) => p.isCompleted && completedButton};
+
+  &:disabled {
+    ${disabledButton};
+  }
 `;

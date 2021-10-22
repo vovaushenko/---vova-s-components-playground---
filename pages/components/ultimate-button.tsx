@@ -1,12 +1,12 @@
 import type { NextPage } from 'next';
 import React from 'react';
-import Playgrounds from '../../sreens/Playgrounds/Playgrounds';
 import PageLayout from '../../components/Layout/PageLayout/PageLayout';
+import UltimateButtonPage from '../../sreens/ReleasedComponents/UltimateButtonPage/UltimateButtonPage';
 
 const PlaygroundsScreen: NextPage = () => {
   return (
     <PageLayout>
-      <Playgrounds />
+      <UltimateButtonPage />
     </PageLayout>
   );
 };
