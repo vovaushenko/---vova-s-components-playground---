@@ -18,7 +18,8 @@ const SettingsWidget = (): JSX.Element => {
   const SETTINGS_WIDGET_WIDTH = 320;
   const containerRef = useRef<HTMLDivElement>(null);
   const { isSettingsWidgetOpen } = useTypedSelector((state) => state.ui);
-  const { closeSettingsWidget, toggleNightMode } = useActions();
+  const { closeSettingsWidget, toggleNightMode, setScreenBrightness } =
+    useActions();
 
   const handleToggleNightMode = useCallback(() => {
     toggleNightMode();
@@ -45,7 +46,11 @@ const SettingsWidget = (): JSX.Element => {
         </Boop>
       </ButtonsWrapper>
 
-      <SliderControl name={'brightness'} icon={<FiSun />} />
+      <SliderControl
+        name={'brightness'}
+        setGlobalValue={setScreenBrightness}
+        icon={<FiSun />}
+      />
     </Styled.Container>
   );
 };

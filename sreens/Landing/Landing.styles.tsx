@@ -5,6 +5,7 @@ interface ContainerProps {
 }
 
 export const LandingSection = styled.section<ContainerProps>`
+  position: relative;
   display: flex;
   align-items: center;
   flex-direction: column;

@@ -13,7 +13,7 @@ import { useTypedSelector } from '../../../hooks/useTypedSelector';
  *@returns {JSX.Element} - Rendered CardContent component
  */
 const PageLayout: React.FunctionComponent = ({ children }): JSX.Element => {
-  const { isInNightMode } = useTypedSelector((state) => state.ui);
+  const { isInNightMode, brightness } = useTypedSelector((state) => state.ui);
 
   return (
     <LayoutContainer>
@@ -21,7 +21,9 @@ const PageLayout: React.FunctionComponent = ({ children }): JSX.Element => {
       <SettingsControl />
       <SettingsWidget />
       <OpenModalsContainer />
-      <Main isInNightMode={isInNightMode}>{children}</Main>
+      <Main screenBrightness={brightness} isInNightMode={isInNightMode}>
+        {children}
+      </Main>
       <PlaygroundsFooter />
     </LayoutContainer>
   );
@@ -31,10 +33,14 @@ const LayoutContainer = styled.section``;
 
 interface MainWrapperProps {
   isInNightMode: boolean;
+  screenBrightness: string;
 }
 
 const Main = styled.main<MainWrapperProps>`
   filter: ${({ isInNightMode }) => (isInNightMode ? 'sepia(70%)' : '')};
+
+  filter: ${({ screenBrightness, isInNightMode }) =>
+    `brightness(${screenBrightness}%) ${isInNightMode ? `sepia(70%)` : ''}`};
 `;
 
 export default PageLayout;

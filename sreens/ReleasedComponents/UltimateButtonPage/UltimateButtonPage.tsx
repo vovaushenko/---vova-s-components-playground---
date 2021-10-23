@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import * as Styled from './UltimateButtonPage.styles';
 import { useTypedSelector } from '../../../hooks/useTypedSelector';
 import WaveDivider from '../../../components/Image/WaveDivider/WaveDivider';
 import UltimateButton from '../../../showcase/UltimateButton/UltimateButton';
 import Paragraph from '../../../components/Typography/Paragraph/Paragraph';
 import Boop from '../../../components/Animations/Boop/Boop';
+import { useActions } from '../../../hooks/useActions';
+import UltimateButtonGitHub from '../../../components/Iframes/GitHubExamples/UltimateButtonGitHub/UltimateButtonGitHub';
 
 /**
  *Renders Ultimate Button Released page
@@ -16,6 +18,7 @@ const UltimateButtonPage = (): JSX.Element => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isCompleted, setIsCompleted] = useState<boolean>(false);
   const { theme } = useTypedSelector((state) => state.ui);
+  const { openModal } = useActions();
   const DIVIDER_HEIGHT = '130px';
   const TOP_WAVE_DIVIDER =
     theme === 'dark'
@@ -30,6 +33,15 @@ const UltimateButtonPage = (): JSX.Element => {
       setIsCompleted(true);
     }, 1500);
   };
+
+  const handleGetSourceCode = useCallback(() => {
+    openModal({
+      id: 'ultimate-button-screen',
+      width: '90vw',
+      height: '90vh',
+      content: <UltimateButtonGitHub />,
+    });
+  }, []);
 
   return (
     <Styled.Container>
@@ -64,6 +76,14 @@ const UltimateButtonPage = (): JSX.Element => {
             <UltimateButton isCompleted>Completed</UltimateButton>
           </Styled.State>
         </Styled.ButtonStates>
+
+        <Styled.LevitatingWrapper>
+          <Boop boopConfig={{ scale: 1.1, rotation: 5 }}>
+            <UltimateButton onClick={handleGetSourceCode}>
+              Source Code
+            </UltimateButton>
+          </Boop>
+        </Styled.LevitatingWrapper>
       </Styled.Main>
     </Styled.Container>
   );

@@ -2,11 +2,11 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   position: absolute;
-  top: 90%;
+  top: 80%;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  left: 45%;
+  left: 50%;
 
   animation: 2.35s linear 0s infinite normal none running scrollDown;
 
