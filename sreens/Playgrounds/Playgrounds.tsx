@@ -17,6 +17,7 @@ import Paragraph from '../../components/Typography/Paragraph/Paragraph';
 const Playgrounds = (): JSX.Element => {
   const { theme } = useTypedSelector((state) => state.ui);
   const DIVIDER_HEIGHT = '150px';
+
   const TOP_WAVE_DIVIDER =
     theme === 'dark'
       ? '/divider/dark-divider-bottom.svg'

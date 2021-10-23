@@ -5,17 +5,18 @@ interface Props {
 }
 
 const lightStyles = css<Props>`
-  --slider-color: ${({ theme }) => theme.colors.yellow.golden};
+  --slider-color: ${({ theme }) => theme.colors.primary.accent};
   --slider-thumb: #fff;
 `;
 const darkStyles = css<Props>`
-  --slider-color: ${({ theme }) => theme.colors.yellow.golden};
+  --slider-color: ${({ theme }) => theme.colors.primary.accent};
   --slider-thumb: ${({ theme }) => theme.colors.gray.dark};
 `;
 
 export const Label = styled.label`
   display: flex;
   align-items: center;
+  color: ${({ theme }) => theme.colors.primary.accent};
 `;
 
 export const Container = styled.div`

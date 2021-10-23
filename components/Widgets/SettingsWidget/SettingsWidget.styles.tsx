@@ -15,9 +15,10 @@ export const Container = styled.aside<Props>`
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing.md};
 
-  width: ${({ menuWidth }) => `${menuWidth}px`};
+  min-width: ${({ menuWidth }) => `${menuWidth}px`};
   min-height: ${({ menuWidth }) => `${menuWidth * 1.15}px`};
   background-image: ${({ theme }) => theme.gradients.lightGrayGradient};
+  padding: ${({ theme }) => theme.spacing.md};
 
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 
@@ -28,4 +29,12 @@ export const Container = styled.aside<Props>`
   @media ${({ theme }) => theme.media.tablet} {
     top: 50%;
   }
+`;
+
+export const ButtonsWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  display: grid;
+  grid-auto-columns: 1fr;
+  gap: ${({ theme }) => theme.spacing.md};
 `;
