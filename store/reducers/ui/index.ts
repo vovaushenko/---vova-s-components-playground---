@@ -3,6 +3,7 @@ import { UiAction, UiActionTypes, UIstate } from './types';
 const initialUiState: UIstate = {
   theme: 'dark',
   isSettingsWidgetOpen: false,
+  isInNightMode: false,
 };
 /**
  *@function index
@@ -24,6 +25,9 @@ const uiReducer = (state = initialUiState, action: UiAction): UIstate => {
 
     case UiActionTypes.CLOSE_SETTINGS_WIDGET:
       return { ...state, isSettingsWidgetOpen: false };
+
+    case UiActionTypes.TOGGLE_NIGHT_MODE:
+      return { ...state, isInNightMode: state.isInNightMode ? false : true };
 
     default:
       return state;
