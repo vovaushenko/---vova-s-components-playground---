@@ -2,6 +2,7 @@ import {
   ChangeThemeAction,
   CloseSettingsWidgetAction,
   OpenSettingsWidgetAction,
+  SetBrightnessAction,
   ToggleNightModeAction,
   UiActionTypes,
 } from './types';
@@ -19,5 +20,10 @@ export const UiActionCreators = {
 
   toggleNightMode: (): ToggleNightModeAction => ({
     type: UiActionTypes.TOGGLE_NIGHT_MODE,
+  }),
+
+  setScreenBrightness: (brightness: string): SetBrightnessAction => ({
+    type: UiActionTypes.SET_BRIGHTNESS,
+    payload: brightness,
   }),
 };

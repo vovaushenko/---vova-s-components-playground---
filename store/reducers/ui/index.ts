@@ -4,6 +4,7 @@ const initialUiState: UIstate = {
   theme: 'dark',
   isSettingsWidgetOpen: false,
   isInNightMode: false,
+  brightness: '100',
 };
 /**
  *@function index
@@ -28,6 +29,9 @@ const uiReducer = (state = initialUiState, action: UiAction): UIstate => {
 
     case UiActionTypes.TOGGLE_NIGHT_MODE:
       return { ...state, isInNightMode: state.isInNightMode ? false : true };
+
+    case UiActionTypes.SET_BRIGHTNESS:
+      return { ...state, brightness: action.payload };
 
     default:
       return state;
