@@ -118,3 +118,19 @@ export const scaleInCenter = keyframes`
     filter: blur(0);
   }
 `;
+/**
+ * @keyframes slideInTop
+ * @returns {keyframes} - keyframes for standard modal's appearance
+ * @example  animation:${slideInTop} 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+ */
+export const slideInTop = keyframes`
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+`;

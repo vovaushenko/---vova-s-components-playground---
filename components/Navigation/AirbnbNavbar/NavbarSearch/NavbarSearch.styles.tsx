@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { Props } from './NavbarSearch';
+import { slideInTop } from '../../../../design-foundation/reusable-animations';
 
 const expandedStyles = css`
   visibility: visible;
@@ -70,14 +71,64 @@ export const Container = styled.div<Props>`
   justify-content: center;
   border-radius: 2rem;
   color: ${({ theme }) => theme.colors.primary.text};
-  background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  background: ${({ theme }) => theme.colors.primary.background};
 
-  padding: ${({ theme }) => theme.spacing.md};
-
-  width: 60%;
+  width: 50%;
   margin: 0 auto;
   margin-top: 1rem;
 
   ${({ isExpanded }) => isExpanded === false && unmountAnimation};
+`;
+
+export const SearchModal = styled.div`
+  position: absolute;
+  color: ${({ theme }) => theme.colors.primary.text};
+  padding: ${({ theme }) => theme.spacing.md};
+  border-radius: 2rem;
+  top: calc(100% + 1rem);
+  border: 2px solid ${({ theme }) => theme.colors.primary.accent};
+  background-color: ${({ theme }) => theme.colors.primary.secondaryBg};
+
+  animation: ${slideInTop} 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+
+  max-height: 500px;
+  overflow-y: scroll;
+  width: 100%;
+`;
+
+export const SearchOptionsList = styled.ul`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+`;
+
+export const SearchOption = styled.button`
+  all: unset;
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: column;
+  padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.xl}`};
+  border-radius: 2rem;
+
+  & .title {
+    font-weight: ${({ theme }) => theme.fontWeights.semibold};
+  }
+
+  & .description {
+    color: ${({ theme }) => theme.colors.primary.accent};
+  }
+
+  :hover {
+    background: ${({ theme }) => theme.colors.primary.secondaryBg};
+  }
+`;
+
+export const SocialsList = styled.ul`
+  display: flex;
+  justify-content: center;
+  gap: ${({ theme }) => theme.spacing.md};
+  background: ${({ theme }) => theme.colors.primary.background};
+  padding: ${({ theme }) => theme.spacing.md};
+  border-radius: 2rem;
+  margin-top: ${({ theme }) => theme.spacing.md};
 `;
