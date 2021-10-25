@@ -3,15 +3,18 @@ import * as Styled from './SettingsWidgetButton.styles';
 
 type ButtonProps = {
   onClickAction: () => void;
+  withMemory?: boolean;
 } & ComponentPropsWithoutRef<'button'>;
 
 /**
  *@function SettingsWidgetButton
- *@param {number} prop -
+ *@param {function} onClickAction - specific onClick action
+ *@param {boolean} withMemory - specifies whether button has "memory", if yes by clicking it will change background color and preserve this tatae
  *@returns {JSX.Element} - Rendered CardContent component
  */
 const SettingsWidgetButton: React.FunctionComponent<ButtonProps> = ({
   onClickAction,
+  withMemory,
   children,
   ...buttonProps
 }): JSX.Element => {
@@ -23,7 +26,11 @@ const SettingsWidgetButton: React.FunctionComponent<ButtonProps> = ({
   }, []);
 
   return (
-    <Styled.BTN onClick={handleClick} isTurnedOn={isTurnedOn} {...buttonProps}>
+    <Styled.BTN
+      onClick={handleClick}
+      isTurnedOn={withMemory ? isTurnedOn : false}
+      {...buttonProps}
+    >
       {children}
     </Styled.BTN>
   );

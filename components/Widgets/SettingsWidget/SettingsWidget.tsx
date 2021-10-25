@@ -18,12 +18,20 @@ const SettingsWidget = (): JSX.Element => {
   const SETTINGS_WIDGET_WIDTH = 320;
   const containerRef = useRef<HTMLDivElement>(null);
   const { isSettingsWidgetOpen } = useTypedSelector((state) => state.ui);
-  const { closeSettingsWidget, toggleNightMode, setScreenBrightness } =
-    useActions();
+  const {
+    closeSettingsWidget,
+    toggleNightMode,
+    setScreenBrightness,
+    changeTheme,
+  } = useActions();
 
   const handleToggleNightMode = useCallback(() => {
     toggleNightMode();
   }, [toggleNightMode]);
+
+  const handleChangeTheme = useCallback(() => {
+    changeTheme();
+  }, [changeTheme]);
 
   useCloseModalIfClickedOutside({
     isModalOpen: isSettingsWidgetOpen,
@@ -39,7 +47,16 @@ const SettingsWidget = (): JSX.Element => {
     >
       <ButtonsWrapper>
         <Boop boopConfig={{ x: 5, scale: 1.05 }}>
-          <SettingsWidgetButton onClickAction={handleToggleNightMode}>
+          <SettingsWidgetButton onClickAction={handleChangeTheme}>
+            <FiSun />
+            Change Theme
+          </SettingsWidgetButton>
+        </Boop>
+        <Boop boopConfig={{ x: 5, scale: 1.05 }}>
+          <SettingsWidgetButton
+            onClickAction={handleToggleNightMode}
+            withMemory
+          >
             <FiMoon />
             Night Mode
           </SettingsWidgetButton>

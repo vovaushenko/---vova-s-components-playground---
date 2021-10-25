@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { FiSave, FiSettings, FiSun } from 'react-icons/fi';
+import { FiMoon, FiSave, FiSettings, FiSun } from 'react-icons/fi';
 import { useActions } from '../../../hooks/useActions';
 import { useTypedSelector } from '../../../hooks/useTypedSelector';
 
@@ -16,7 +16,7 @@ interface HookReturn {
 
 export const useSettingsControlConfig = (): HookReturn => {
   const { openSettingsWidget, closeSettingsWidget, changeTheme } = useActions();
-  const { isSettingsWidgetOpen } = useTypedSelector((state) => state.ui);
+  const { isSettingsWidgetOpen, theme } = useTypedSelector((state) => state.ui);
 
   const toggleSettingsWidget = () => {
     isSettingsWidgetOpen ? closeSettingsWidget() : openSettingsWidget();
@@ -32,7 +32,12 @@ export const useSettingsControlConfig = (): HookReturn => {
     {
       id: 2,
       action: () => changeTheme(),
-      icon: <FiSun className={'button__icon'} />,
+      icon:
+        theme === 'dark' ? (
+          <FiSun className={'button__icon'} />
+        ) : (
+          <FiMoon className={'button__icon'} />
+        ),
       text: 'Settings',
     },
     {
