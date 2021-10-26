@@ -41,7 +41,7 @@ const UltimateButtonPage = (): JSX.Element => {
       height: '90vh',
       content: <UltimateButtonGitHub />,
     });
-  }, []);
+  }, [openModal]);
 
   return (
     <Styled.Container>
@@ -55,7 +55,7 @@ const UltimateButtonPage = (): JSX.Element => {
               isLoading={isLoading}
               isCompleted={isCompleted}
             >
-              {isCompleted ? 'success' : 'click me'}
+              {isCompleted ? '🎊 success 🎊' : 'click me'}
             </UltimateButton>
           </Boop>
         </Styled.LevitatingWrapper>

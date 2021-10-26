@@ -4,9 +4,9 @@ import WaveDivider from '../../components/Image/WaveDivider/WaveDivider';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import ScrollHint from '../../components/UI/ScrollHint/ScrollHint';
 import SectionHeader from '../../components/Typography/SectionHeader/SectionHeader';
-import RecentDevToArticles from '../../components/Sections/MyArticles/RecentDevToArticles/RecentDevToArticles';
 import { useComponentsListConfig } from '../../components/Sections/ReleasedComponents/ComponentsList/ComponentsList.config';
 import ComponentsList from '../../components/Sections/ReleasedComponents/ComponentsList/ComponentsList';
+import RecentDevToArticles from '../../components/Sections/MyArticles/RecentDevToArticles/RecentDevToArticles';
 
 /**
  *Renders Landing Screen
@@ -31,27 +31,32 @@ const Landing: React.FunctionComponent = (): JSX.Element => {
   return (
     <>
       <WaveDivider waveImg={TOP_WAVE_DIVIDER} dividerHeight={DIVIDER_HEIGHT} />
+      {/* LANDING SECTION */}
       <Styled.LandingSection dividerHeight={DIVIDER_HEIGHT}>
         <SectionHeader variant={'xxl'}>
           Welcome to the Component Playground
         </SectionHeader>
         <ScrollHint hintText={'Scroll to articles'} />
       </Styled.LandingSection>
-
+      {/* === END OF LANDING SECTION === */}
       <WaveDivider
         waveImg={BOTTOM_WAVE_DIVIDER}
         dividerHeight={DIVIDER_HEIGHT}
       />
+      {/* RELEASED COMPONENTS SECTION */}
       <Styled.ComponentsSection>
         <ComponentsList
           releasedComponents={releasedComponents}
           withFullArticleDescription
         />
       </Styled.ComponentsSection>
+      {/* === END OF RELEASED COMPONENTS SECTION === */}
 
+      {/* RELEASED ARTICLES SECTION */}
       <Styled.ArticlesSection>
         <RecentDevToArticles devToArticles={devToArticles} />
       </Styled.ArticlesSection>
+      {/* === END OF RELEASED ARTICLES SECTION === */}
     </>
   );
 };

@@ -26,6 +26,7 @@ export const Container = styled.nav<StyledProps>`
 `;
 
 export const RoutingModal = styled.aside<StyledProps>`
+  z-index: 444;
   /* positioning */
   position: fixed;
   top: ${({ navbarHeight }) => `${navbarHeight}rem`};
@@ -57,7 +58,7 @@ export const RouterLinks = styled.ul`
 
   /* animation */
   animation: ${slideTop} 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  animation-delay: 0.6s;
+  animation-delay: 0.8s;
 `;
 
 export const SocialLinks = styled.ul`
@@ -71,5 +72,15 @@ export const SocialLinks = styled.ul`
 
   /* animation */
   animation: ${slideTop} 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  animation-delay: 0.9s;
+  animation-delay: 1.1s;
+`;
+
+export const LogoWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  /* animation */
+  animation: ${slideTop} 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation-delay: 0.4s;
 `;

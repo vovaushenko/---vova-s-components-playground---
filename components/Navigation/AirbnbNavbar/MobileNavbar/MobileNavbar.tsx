@@ -6,10 +6,9 @@ import { useNavbarConfig } from '../AirbnbNavbar.config';
 import * as S from '../AirbnbNavbar.styles';
 import Link from 'next/link';
 import IconButton from '../../../Buttons/IconButton/IconButton';
+import Logo from '../Logo/Logo';
 
 /**
- *@IMPORTAN in progress, not production ready.
- *@TODO add logo, add more links
  *Renders mobile version of Airbnb navbar
  *@function MobileNavbar
  *@returns {JSX.Element} - Rendered Mobile Airbnb navbar component
@@ -36,13 +35,16 @@ const MobileNavbar = (): JSX.Element => {
         isOpen={isRoutingExpanded}
         navbarHeight={MOBILE_NAVBAR_HEIGHT}
       >
-        <Styled.RouterLinks key={`trigger-animation-${isRoutingExpanded}`}>
+        <Styled.LogoWrapper key={`trigger-animation-1${isRoutingExpanded}`}>
+          <Logo isExpanded={true} />
+        </Styled.LogoWrapper>
+
+        <Styled.RouterLinks key={`trigger-animation-2${isRoutingExpanded}`}>
           {centralLinks.map((link) => (
             <S.ListItem key={link.id}>
               <Link href={link.href}>
                 <S.A>
                   {link.icon}
-
                   {link.text}
                 </S.A>
               </Link>
@@ -50,7 +52,7 @@ const MobileNavbar = (): JSX.Element => {
           ))}
         </Styled.RouterLinks>
 
-        <Styled.SocialLinks key={`trigger-animation-2-${isRoutingExpanded}`}>
+        <Styled.SocialLinks key={`trigger-animation-3${isRoutingExpanded}`}>
           {socialLinks.map((link) => (
             <S.ListItem key={link.id}>
               <IconButton renderAs={'link'} href={link.href}>

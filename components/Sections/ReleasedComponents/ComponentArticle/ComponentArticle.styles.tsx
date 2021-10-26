@@ -10,6 +10,22 @@ export const TextColumn = styled.div`
   flex: 0.6;
 `;
 
+export const LinksColumn = styled.aside`
+  flex: 0.05;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: ${({ theme }) => theme.spacing.md};
+`;
+
+export const ComponentColumn = styled.div`
+  flex: 0.35;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 const withDescriptionStyle = css`
   padding: ${({ theme }) => `${theme.spacing.xl} ${theme.spacing.md}`};
 `;
@@ -40,22 +56,24 @@ export const Container = styled.article<ContainerProps>`
     color: ${({ isHovered, theme }) =>
       isHovered ? theme.colors.primary.accent : 'inherit'};
   }
-`;
 
-export const LinksColumn = styled.aside`
-  flex: 0.05;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: ${({ theme }) => theme.spacing.md};
-`;
+  @media ${({ theme }) => theme.media.phone} {
+    padding: ${({ theme }) => theme.spacing.md};
+    ${TextColumn} {
+      flex: 0.95;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-export const ComponentColumn = styled.div`
-  flex: 0.35;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+      p {
+        display: none;
+      }
+    }
+
+    ${ComponentColumn} {
+      display: none;
+    }
+  }
 `;
 
 export const LinksWrapper = styled.div`

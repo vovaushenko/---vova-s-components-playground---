@@ -11,6 +11,10 @@ export const ButtonStates = styled.div`
     writing-mode: vertical-rl;
     color: ${({ theme }) => theme.colors.primary.accent};
   }
+
+  @media ${({ theme }) => theme.media.phone} {
+    flex-direction: column;
+  }
 `;
 
 export const State = styled.div`

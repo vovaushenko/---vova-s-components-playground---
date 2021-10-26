@@ -73,7 +73,9 @@ const AirbnbNavbar = (): JSX.Element => {
       <S.Navigation>
         {/*LEFT*/}
         <S.Left>
-          <Logo isExpanded={areLinksExpanded} />
+          <Boop boopConfig={{ scale: 1.1 }}>
+            <Logo isExpanded={areLinksExpanded} />
+          </Boop>
         </S.Left>
         {/*////END OF LEFT////*/}
 

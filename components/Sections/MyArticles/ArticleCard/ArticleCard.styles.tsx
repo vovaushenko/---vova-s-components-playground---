@@ -8,8 +8,10 @@ interface ContainerProps {
 export const Container = styled.article<ContainerProps>`
   position: relative;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing.md};
+  width: 100%;
 
   cursor: pointer;
   background-color: ${({ theme }) => theme.colors.primary.background};
@@ -59,6 +61,7 @@ export const ArrowIcon = styled.span`
 
 export const TagList = styled.ul`
   display: flex;
+  flex-wrap: wrap;
   gap: ${({ theme }) => theme.spacing.xs};
 `;
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import * as Styled from './NavbarSearch.styles';
 import { useNavbarSearchConfig } from './NavbarSearch.config';
 import ComponentsList from '../../../Sections/ReleasedComponents/ComponentsList/ComponentsList';
@@ -7,6 +7,7 @@ import RecentDevToArticles from '../../../Sections/MyArticles/RecentDevToArticle
 import { useTypedSelector } from '../../../../hooks/useTypedSelector';
 import { useSocialContacts } from '../../../../hooks/useContacts';
 import NavSocialContacts from '../NavSocialContacts/NavSocialContacts';
+import { useCloseModalIfClickedOutside } from '../../../../hooks/useCloseIfClickedOutside';
 
 export interface Props {
   isExpanded: boolean;
@@ -18,6 +19,7 @@ export interface Props {
  *@returns {JSX.Element} - Rendered NavbarSearch component
  */
 const NavbarSearch = ({ isExpanded }: Props): JSX.Element => {
+  const containerRef = useRef<HTMLDivElement>(null);
   const [isSearchExpanded, setIsSearchExpanded] = useState<boolean>(false);
   const [searchContent, setSearchContent] = useState<string>('');
   const { devToArticles } = useTypedSelector((state) => state.articles);
@@ -30,8 +32,14 @@ const NavbarSearch = ({ isExpanded }: Props): JSX.Element => {
     setSearchContent(title);
   };
 
+  useCloseModalIfClickedOutside({
+    modalRef: containerRef,
+    isModalOpen: isSearchExpanded,
+    closeModalFunction: () => setIsSearchExpanded(false),
+  });
+
   return (
-    <Styled.Container isExpanded={isExpanded}>
+    <Styled.Container isExpanded={isExpanded} ref={containerRef}>
       {/* SEARCH OPTIONS */}
       <Styled.SearchOptionsList>
         {searchOptions.map((option) => (

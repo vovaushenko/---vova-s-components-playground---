@@ -6,18 +6,33 @@ type StyledProps = Pick<SectionHeaderProps, 'margin' | 'variant'>;
 
 const s = css`
   font-size: 1.25rem;
+  @media ${({ theme }) => theme.media.desktop} {
+    font-size: 1rem;
+  }
 `;
 const m = css`
   font-size: 1.5rem;
+  @media ${({ theme }) => theme.media.tablet} {
+    font-size: 1.25rem;
+  }
 `;
 const l = css`
   font-size: 2rem;
+  @media ${({ theme }) => theme.media.tablet} {
+    font-size: 1.5rem;
+  }
 `;
 const xl = css`
   font-size: 3rem;
+  @media ${({ theme }) => theme.media.tablet} {
+    font-size: 2rem;
+  }
 `;
 const xxl = css`
   font-size: 4rem;
+  @media ${({ theme }) => theme.media.tablet} {
+    font-size: 2.5rem;
+  }
 `;
 
 export const H2 = styled.h3<StyledProps>`
@@ -34,9 +49,4 @@ export const H2 = styled.h3<StyledProps>`
   ${({ variant }) => variant === 'l' && l};
   ${({ variant }) => variant === 'xl' && xl};
   ${({ variant }) => variant === 'xxl' && xxl};
-
-  @media ${({ theme }) => theme.media.phone} {
-    font-size: 4rem;
-    line-height: 4rem;
-  }
 `;

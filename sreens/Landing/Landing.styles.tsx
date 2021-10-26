@@ -7,8 +7,10 @@ interface ContainerProps {
 export const LandingSection = styled.section<ContainerProps>`
   position: relative;
   display: flex;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: ${({ theme }) => theme.spacing.md};
   min-height: ${({ dividerHeight }) => `calc(100vh - ${dividerHeight})`};
 `;
 

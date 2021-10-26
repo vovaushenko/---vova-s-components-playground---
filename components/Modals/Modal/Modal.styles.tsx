@@ -18,6 +18,13 @@ export const Container = styled.div<ContainerProps>`
   height: ${({ height }) => height || '100vh'};
 
   animation: ${scaleInCenter} 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+
+  @media ${({ theme }) => theme.media.tablet} {
+    padding: ${({ theme }) => theme.spacing.lg};
+  }
+  @media ${({ theme }) => theme.media.phone} {
+    padding: ${({ theme }) => theme.spacing.md};
+  }
 `;
 
 export const CloseModalButton = styled.span`
