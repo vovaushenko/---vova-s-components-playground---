@@ -6,9 +6,7 @@ import { useComponentsListConfig } from '../../../Sections/ReleasedComponents/Co
 import RecentDevToArticles from '../../../Sections/MyArticles/RecentDevToArticles/RecentDevToArticles';
 import { useTypedSelector } from '../../../../hooks/useTypedSelector';
 import { useSocialContacts } from '../../../../hooks/useContacts';
-import Boop from '../../../Animations/Boop/Boop';
-import IconButton from '../../../Buttons/IconButton/IconButton';
-import SectionHeader from '../../../Typography/SectionHeader/SectionHeader';
+import NavSocialContacts from '../NavSocialContacts/NavSocialContacts';
 
 export interface Props {
   isExpanded: boolean;
@@ -22,9 +20,9 @@ export interface Props {
 const NavbarSearch = ({ isExpanded }: Props): JSX.Element => {
   const [isSearchExpanded, setIsSearchExpanded] = useState<boolean>(false);
   const [searchContent, setSearchContent] = useState<string>('');
+  const { devToArticles } = useTypedSelector((state) => state.articles);
   const { searchOptions } = useNavbarSearchConfig();
   const { releasedComponents } = useComponentsListConfig();
-  const { devToArticles } = useTypedSelector((state) => state.articles);
   const { myContacts } = useSocialContacts();
 
   const handleExpandSearch = (title: string) => {
@@ -34,6 +32,7 @@ const NavbarSearch = ({ isExpanded }: Props): JSX.Element => {
 
   return (
     <Styled.Container isExpanded={isExpanded}>
+      {/* SEARCH OPTIONS */}
       <Styled.SearchOptionsList>
         {searchOptions.map((option) => (
           <li key={option.id}>
@@ -46,6 +45,9 @@ const NavbarSearch = ({ isExpanded }: Props): JSX.Element => {
           </li>
         ))}
       </Styled.SearchOptionsList>
+      {/* === END OF SEARCH OPTIONS === */}
+
+      {/* EXPANDABLE MODAL WITH SEARCH RESULTS  */}
       {isSearchExpanded && (
         <Styled.SearchModal key={searchContent}>
           {searchContent === 'Components' && (
@@ -55,22 +57,7 @@ const NavbarSearch = ({ isExpanded }: Props): JSX.Element => {
             />
           )}
           {searchContent === 'Links' && (
-            <>
-              <SectionHeader variant={'l'}>Contact</SectionHeader>
-              <Styled.SocialsList>
-                {myContacts.map((contact) => (
-                  <li key={contact.id}>
-                    <Boop
-                      boopConfig={{ rotation: 25, scale: 1.1, timing: 200 }}
-                    >
-                      <IconButton renderAs={'link'} href={contact.href}>
-                        {contact.icon}
-                      </IconButton>
-                    </Boop>
-                  </li>
-                ))}
-              </Styled.SocialsList>
-            </>
+            <NavSocialContacts socialContacts={myContacts} />
           )}
           {searchContent === 'Articles' && (
             <RecentDevToArticles devToArticles={devToArticles} />

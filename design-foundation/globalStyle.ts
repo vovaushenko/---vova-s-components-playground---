@@ -10,10 +10,24 @@ export const GlobalStyles = createGlobalStyle`
     background: ${({ theme }) => theme.colors.primary.background};
   }
 
- 
+
   .icon {
     color: ${({ theme }) => theme.colors.primary.text};
     font-size: ${({ theme }) => theme.textFontSize.sm};
   }
 
+
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0);
+
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: ${({ theme }) => theme.colors.primary.accent};
+  }
 `;

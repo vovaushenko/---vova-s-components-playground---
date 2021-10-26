@@ -12,6 +12,7 @@ import { useMediaQuery } from '@react-hook/media-query';
 import MobileNavbar from './MobileNavbar/MobileNavbar';
 
 /**
+ *Renders navbar in airbnb-like animation style
  *@function AirbnbNavbar
  *@returns {JSX.Element} - Rendered CardContent component
  */

@@ -2,7 +2,7 @@ import React from 'react';
 import * as Styled from './ExpandButton.styles';
 import { FiPlusCircle } from 'react-icons/fi';
 
-interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
+export interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
   text: string;
 }
 
