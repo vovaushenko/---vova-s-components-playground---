@@ -49,7 +49,10 @@ const NavbarSearch = ({ isExpanded }: Props): JSX.Element => {
       {isSearchExpanded && (
         <Styled.SearchModal key={searchContent}>
           {searchContent === 'Components' && (
-            <ComponentsList releasedComponents={releasedComponents} />
+            <ComponentsList
+              releasedComponents={releasedComponents}
+              withFullArticleDescription={false}
+            />
           )}
           {searchContent === 'Links' && (
             <>

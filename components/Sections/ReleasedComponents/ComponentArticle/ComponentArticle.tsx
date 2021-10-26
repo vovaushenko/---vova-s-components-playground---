@@ -10,16 +10,19 @@ import IconButton from '../../../Buttons/IconButton/IconButton';
 
 export interface ComponentArticleProps {
   component: IComponentArticle;
+  withDescription: boolean;
 }
 
 /**
  *Renders article with the information about recently released components
  *@function ComponentArticle
- *@param {number} prop -
+ *@param {IComponentArticle} object - contains full info about article
+ *@param {withDescription} boolean - specifies whether description should be added
  *@returns {JSX.Element} - Rendered ComponentArticle component
  */
 const ComponentArticle = ({
   component,
+  withDescription,
 }: ComponentArticleProps): JSX.Element => {
   const articleRef = useRef<HTMLDivElement>(null);
   const isHovered = useHover(articleRef);
@@ -33,7 +36,11 @@ const ComponentArticle = ({
   } = component;
 
   return (
-    <Styled.Container ref={articleRef} isHovered={isHovered}>
+    <Styled.Container
+      ref={articleRef}
+      isHovered={isHovered}
+      withDescription={withDescription}
+    >
       {/* LINKS COLUMN */}
       <Styled.LinksColumn>
         <Boop boopConfig={{ rotation: -25, scale: 1.1, timing: 200 }}>
@@ -57,7 +64,9 @@ const ComponentArticle = ({
       {/* TEXT COLUMN */}
       <Styled.TextColumn>
         <Heading>{title}</Heading>
-        <Paragraph margin={'1.5rem 0 0 0'}>{description}</Paragraph>
+        {withDescription && (
+          <Paragraph margin={'1.5rem 0 0 0'}>{description}</Paragraph>
+        )}
       </Styled.TextColumn>
       {/* ========  END OF TEXT COLUMN ======== */}
 

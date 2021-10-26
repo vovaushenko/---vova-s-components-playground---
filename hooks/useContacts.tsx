@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import { FiGithub, FiInstagram, FiLinkedin, FiTwitter } from 'react-icons/fi';
+import { FaDev } from 'react-icons/fa';
 
 export interface IMyContact {
   id: number;
@@ -38,6 +39,12 @@ export const useSocialContacts = (): { myContacts: IMyContact[] } => {
       icon: <FiInstagram className={'button__icon'} />,
       text: 'LinkedIn',
       href: 'https://www.instagram.com/vovacodes/',
+    },
+    {
+      id: 5,
+      icon: <FaDev className={'button__icon'} />,
+      text: 'Dev.to',
+      href: 'https://dev.to/vovacodesca',
     },
   ];
 

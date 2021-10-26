@@ -6,6 +6,7 @@ import ComponentArticle from '../ComponentArticle/ComponentArticle';
 
 export interface ComponentsListProps {
   releasedComponents: IComponentArticle[];
+  withFullArticleDescription: boolean;
 }
 
 /**
@@ -16,12 +17,17 @@ export interface ComponentsListProps {
  */
 const ComponentsList = ({
   releasedComponents,
+  withFullArticleDescription,
 }: ComponentsListProps): JSX.Element => {
   return (
     <Styled.Container>
       <SectionHeader variant={'l'}>Released Components</SectionHeader>
       {releasedComponents.map((component) => (
-        <ComponentArticle key={component.id} component={component} />
+        <ComponentArticle
+          key={component.id}
+          component={component}
+          withDescription={withFullArticleDescription}
+        />
       ))}
     </Styled.Container>
   );

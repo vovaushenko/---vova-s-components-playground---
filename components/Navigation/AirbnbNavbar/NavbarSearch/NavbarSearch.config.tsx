@@ -9,13 +9,13 @@ export const useNavbarSearchConfig = (): {
     },
     {
       id: 2,
-      title: 'Links',
-      description: 'Useful Links',
+      title: 'Articles',
+      description: 'Latest articles',
     },
     {
       id: 3,
-      title: 'Articles',
-      description: 'Latest articles',
+      title: 'Links',
+      description: 'Useful Links',
     },
   ];
 

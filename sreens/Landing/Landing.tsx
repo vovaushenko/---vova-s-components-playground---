@@ -43,7 +43,10 @@ const Landing: React.FunctionComponent = (): JSX.Element => {
         dividerHeight={DIVIDER_HEIGHT}
       />
       <Styled.ComponentsSection>
-        <ComponentsList releasedComponents={releasedComponents} />
+        <ComponentsList
+          releasedComponents={releasedComponents}
+          withFullArticleDescription
+        />
       </Styled.ComponentsSection>
 
       <Styled.ArticlesSection>

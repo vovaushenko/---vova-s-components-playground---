@@ -98,8 +98,8 @@ export const SearchModal = styled.div`
 
 export const SearchOptionsList = styled.ul`
   display: flex;
-  justify-content: space-between;
   width: 100%;
+  justify-content: space-between;
 `;
 
 export const SearchOption = styled.button`
@@ -109,6 +109,7 @@ export const SearchOption = styled.button`
   flex-direction: column;
   padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.xl}`};
   border-radius: 2rem;
+  transition: background 0.2s ease-in;
 
   & .title {
     font-weight: ${({ theme }) => theme.fontWeights.semibold};

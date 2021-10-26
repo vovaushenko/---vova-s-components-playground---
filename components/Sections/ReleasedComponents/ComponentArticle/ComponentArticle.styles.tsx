@@ -1,19 +1,39 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { floatKeyframes } from '../../../../design-foundation/reusable-animations';
 
 interface ContainerProps {
   isHovered: boolean;
+  withDescription: boolean;
 }
+
+export const TextColumn = styled.div`
+  flex: 0.6;
+`;
+
+const withDescriptionStyle = css`
+  padding: ${({ theme }) => `${theme.spacing.xl} ${theme.spacing.md}`};
+`;
+
+const withoutDescriptionStyle = css`
+  padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.md}`};
+
+  ${TextColumn} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+`;
 
 export const Container = styled.article<ContainerProps>`
   position: relative;
   display: flex;
   gap: ${({ theme }) => theme.spacing.md};
 
+  ${({ withDescription }) =>
+    withDescription ? withDescriptionStyle : withoutDescriptionStyle};
   cursor: pointer;
   background-color: ${({ theme }) => theme.colors.primary.background};
-  padding: ${({ theme }) => theme.spacing.lg};
-  padding: ${({ theme }) => `${theme.spacing.xl} ${theme.spacing.md}`};
+
   border-radius: ${({ theme }) => theme.border.primary};
 
   h3 {
@@ -31,9 +51,6 @@ export const LinksColumn = styled.aside`
   gap: ${({ theme }) => theme.spacing.md};
 `;
 
-export const TextColumn = styled.div`
-  flex: 0.6;
-`;
 export const ComponentColumn = styled.div`
   flex: 0.35;
   display: flex;
