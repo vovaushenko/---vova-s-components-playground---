@@ -31,7 +31,7 @@ export const Container = styled.aside<Props>`
     isOpen ? `translateX(10px)` : `translateX(-${menuWidth + 50}px)`};
 
   @media ${({ theme }) => theme.media.tablet} {
-    top: 50%;
+    top: 30%;
   }
 `;
 

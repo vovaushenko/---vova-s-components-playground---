@@ -23,10 +23,13 @@ export const Container = styled.nav<StyledProps>`
   /* styling */
   padding: ${({ theme }) => theme.spacing.sm};
   height: ${({ navbarHeight }) => `${navbarHeight}rem`};
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
 `;
 
 export const RoutingModal = styled.aside<StyledProps>`
-  z-index: 444;
+  z-index: ${({ theme }) => theme.zIndex.navigation};
+
   /* positioning */
   position: fixed;
   top: ${({ navbarHeight }) => `${navbarHeight}rem`};

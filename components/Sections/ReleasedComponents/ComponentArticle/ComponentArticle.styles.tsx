@@ -57,7 +57,7 @@ export const Container = styled.article<ContainerProps>`
       isHovered ? theme.colors.primary.accent : 'inherit'};
   }
 
-  @media ${({ theme }) => theme.media.phone} {
+  @media ${({ theme }) => theme.media.tablet} {
     padding: ${({ theme }) => theme.spacing.md};
     ${TextColumn} {
       flex: 0.95;
