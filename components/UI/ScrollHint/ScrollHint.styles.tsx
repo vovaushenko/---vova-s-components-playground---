@@ -25,3 +25,15 @@ export const Container = styled.div`
     left: 35%;
   }
 `;
+
+export const SVG = styled.svg`
+  width: 2rem;
+  height: 3rem;
+  font-size: 10px;
+
+  & path {
+    fill: ${({ theme }) => theme.colors.primary.accent};
+  }
+
+  stroke: ${({ theme }) => theme.colors.primary.accent};
+`;

@@ -44,7 +44,7 @@ export const colors = {
     text: 'rgb(34, 34, 34)',
     background: '#f7f7f7',
     secondaryBg: 'rgb(99, 188, 233)',
-    accent: 'rgb(93, 63, 211)',
+    accent: '#5722cd',
     accentDark: '#01bf71',
     purple: '#4831d4',
   },
@@ -158,6 +158,11 @@ export const allGradients = {
     circle farthest-corner at 10% 20%,
     rgba(90, 92, 106, 1) 0%,
     rgba(32, 45, 58, 1) 81.3%
+  )`,
+  lightThemeGradient: `radial-gradient(
+    circle farthest-corner at 10% 20%,
+    rgba(97, 186, 255, 1) 0%,
+    rgba(166, 239, 253, 1) 90.1%
   )`,
 };
 export type AppGradientsType = typeof allGradients;

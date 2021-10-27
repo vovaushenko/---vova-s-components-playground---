@@ -17,7 +17,11 @@ export const Container = styled.aside<Props>`
 
   min-width: ${({ menuWidth }) => `${menuWidth}px`};
   min-height: ${({ menuWidth }) => `${menuWidth * 1.15}px`};
-  background-image: ${({ theme }) => theme.gradients.lightGrayGradient};
+  background-image: ${({ theme }) =>
+    theme.theme === 'dark'
+      ? theme.gradients.lightGrayGradient
+      : theme.gradients.lightThemeGradient};
+
   padding: ${({ theme }) => theme.spacing.md};
 
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
