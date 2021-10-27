@@ -1,14 +1,27 @@
 import {
-  ChangeThemeAction,
   CloseSettingsWidgetAction,
+  IAppTheme,
   OpenSettingsWidgetAction,
   SetBrightnessAction,
+  SetThemeAction,
   ToggleNightModeAction,
   UiActionTypes,
 } from './types';
+import { AppState, NextThunkDispatch } from '../../index';
+import { persistThemeToLocalStorage } from '../../../utils';
 
 export const UiActionCreators = {
-  changeTheme: (): ChangeThemeAction => ({ type: UiActionTypes.CHANGE_THEME }),
+  setTheme: (theme: IAppTheme): SetThemeAction => ({
+    type: UiActionTypes.SET_THEME,
+    payload: theme,
+  }),
+
+  changeTheme:
+    () => (dispatch: NextThunkDispatch, getState: () => AppState) => {
+      dispatch({ type: UiActionTypes.CHANGE_THEME });
+      const currentThemeMode = getState().ui.theme;
+      persistThemeToLocalStorage(currentThemeMode);
+    },
 
   openSettingsWidget: (): OpenSettingsWidgetAction => ({
     type: UiActionTypes.OPEN_SETTINGS_WIDGET,

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import * as Styled from './Landing.styles';
 import WaveDivider from '../../components/Image/WaveDivider/WaveDivider';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
@@ -7,6 +7,8 @@ import SectionHeader from '../../components/Typography/SectionHeader/SectionHead
 import { useComponentsListConfig } from '../../components/Sections/ReleasedComponents/ComponentsList/ComponentsList.config';
 import ComponentsList from '../../components/Sections/ReleasedComponents/ComponentsList/ComponentsList';
 import RecentDevToArticles from '../../components/Sections/MyArticles/RecentDevToArticles/RecentDevToArticles';
+import { useActions } from '../../hooks/useActions';
+import { getInitialThemeMode } from '../../utils';
 
 /**
  *Renders Landing Screen
@@ -15,6 +17,7 @@ import RecentDevToArticles from '../../components/Sections/MyArticles/RecentDevT
  *@returns {JSX.Element} - Rendered CardContent component
  */
 const Landing: React.FunctionComponent = (): JSX.Element => {
+  const { setTheme } = useActions();
   const { theme } = useTypedSelector((state) => state.ui);
   const { devToArticles } = useTypedSelector((state) => state.articles);
   const { releasedComponents } = useComponentsListConfig();
@@ -27,6 +30,11 @@ const Landing: React.FunctionComponent = (): JSX.Element => {
     theme === 'dark'
       ? '/divider/dark-divider-bottom.svg'
       : '/divider/light-divider-bottom.svg';
+
+  useEffect(() => {
+    const persistedTheme = getInitialThemeMode();
+    setTheme(persistedTheme);
+  }, []);
 
   return (
     <>

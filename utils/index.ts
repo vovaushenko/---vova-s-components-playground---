@@ -1,5 +1,13 @@
 /* eslint-disable prefer-spread */
-export { random, debounce, range };
+import { IAppTheme } from '../store/reducers/ui/types';
+
+export {
+  random,
+  debounce,
+  range,
+  getInitialThemeMode,
+  persistThemeToLocalStorage,
+};
 /**
  *Returns random number in specified range
  *@function random
@@ -48,4 +56,26 @@ const debounce = (callback: unknown, delay: number): (() => unknown) => {
       if (typeof callback === 'function') callback.apply(null, args);
     }, delay);
   };
+};
+
+/**
+ *Returns initial theme mode for the application
+ *@function getInitialThemeMode
+ *@returns {string} app's theme mode persisted to localStorage
+ */
+const getInitialThemeMode = (): IAppTheme => {
+  if (typeof window !== 'undefined') {
+    const persistedColorPreference = window.localStorage.getItem('theme-mode');
+    const hasPersistedPreference = typeof persistedColorPreference === 'string';
+    if (hasPersistedPreference) {
+      return persistedColorPreference as IAppTheme;
+    } else {
+    }
+  }
+
+  return 'dark';
+};
+
+const persistThemeToLocalStorage = (themeMode: IAppTheme): void => {
+  localStorage.setItem('theme-mode', themeMode);
 };

@@ -18,6 +18,10 @@ const uiReducer = (state = initialUiState, action: UiAction): UIstate => {
       const newTheme = state.theme === 'dark' ? 'light' : 'dark';
       return { ...state, theme: newTheme };
 
+    case UiActionTypes.SET_THEME: {
+      return { ...state, theme: action.payload };
+    }
+
     case UiActionTypes.OPEN_SETTINGS_WIDGET:
       return {
         ...state,

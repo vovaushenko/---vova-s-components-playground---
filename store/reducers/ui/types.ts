@@ -1,11 +1,14 @@
+export type IAppTheme = 'dark' | 'light';
+
 export interface UIstate {
-  theme: 'dark' | 'light';
+  theme: IAppTheme;
   isSettingsWidgetOpen: boolean;
   isInNightMode: boolean;
   brightness: string;
 }
 
 export enum UiActionTypes {
+  SET_THEME = 'SET_THEME',
   CHANGE_THEME = 'CHANGE_THEME',
 
   OPEN_SETTINGS_WIDGET = 'OPEN_SETTINGS_WIDGET',
@@ -37,9 +40,15 @@ export interface SetBrightnessAction {
   payload: string;
 }
 
+export interface SetThemeAction {
+  type: UiActionTypes.SET_THEME;
+  payload: IAppTheme;
+}
+
 export type UiAction =
   | ChangeThemeAction
   | OpenSettingsWidgetAction
   | CloseSettingsWidgetAction
   | ToggleNightModeAction
-  | SetBrightnessAction;
+  | SetBrightnessAction
+  | SetThemeAction;
