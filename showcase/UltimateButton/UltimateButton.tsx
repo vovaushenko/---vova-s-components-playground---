@@ -9,7 +9,6 @@ export type ButtonProps<T extends ElementType> = {
   children: ReactNode;
 } & ComponentPropsWithoutRef<T>;
 
-// 💡 NOTE. In generic the HTML type of component will be specified. And by default it is button
 const UltimateButton = <T extends ElementType = 'button'>({
   renderAs,
   isLoading,

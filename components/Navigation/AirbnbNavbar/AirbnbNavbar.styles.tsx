@@ -58,6 +58,7 @@ export const A = styled.a`
   cursor: pointer;
   font-size: ${({ theme }) => theme.textFontSize.lg};
   font-weight: ${({ theme }) => theme.fontWeights.semibold};
+  color: inherit;
 
   & .nav__icon {
     color: ${({ theme }) => theme.colors.primary.accent};

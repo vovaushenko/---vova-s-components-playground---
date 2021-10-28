@@ -85,7 +85,7 @@ const AirbnbNavbar = (): JSX.Element => {
             <>
               {centralLinks.map((link) => (
                 <S.ListItem key={link.id}>
-                  <Link href={link.href}>
+                  <Link href={link.href} passHref>
                     <S.A>
                       {link.icon}
 

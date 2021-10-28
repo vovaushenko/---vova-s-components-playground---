@@ -20,13 +20,13 @@ export const useNavbarConfig = (): HookReturnType => {
       id: 2,
       text: 'Storybook',
       icon: <SiStorybook className={'nav__icon'} />,
-      href: 'storybook',
+      href: 'playgrounds',
     },
     {
       id: 3,
       text: 'Github',
       icon: <FiGithub className={'nav__icon'} />,
-      href: 'playgrounds',
+      href: 'https://github.com/vovaushenko',
     },
   ];
 
